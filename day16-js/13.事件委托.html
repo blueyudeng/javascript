@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="add">add</button>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        /*     var oLis = document.querySelectorAll("ul li")
+            var oAdd = document.getElementById('add')
+            var oUlist = document.querySelector('.list')
+            oLis.forEach(function (item, index) {
+                item.onclick = function () {
+                    this.style.background = "red"
+                }
+            })
+    
+            oAdd.onclick = function () {
+                var oNewli = document.createElement("li")
+                oNewli.textContent = "新的li";
+                oUlist.appendChild(oNewli)
+            } */
+
+
+        /* 
+            事件委托：
+                -事件委托就是把我们常用的事件不绑定自身 而绑定父元素或是祖辈元素，当点击目标元素的时候 也可以触发这个事件
+                -事件委托的原理：冒泡
+                -优点：1.减少for循环，提高效率 2.可以给未来的元素绑定事件
+         */
+
+        var oAdd = document.getElementById('add')
+        var oUlist = document.querySelector('.list')
+
+        oAdd.onclick = function () {
+            var oNewli = document.createElement("li");
+            oNewli.textContent = "新的li";
+            oUlist.appendChild(oNewli);
+        }
+
+
+        oUlist.onclick = function (e) {
+            if (e.target.nodeName.toLowerCase() === "li") {
+                e.target.style.background = "red"
+            }
+        }
+    </script>
+</body>
+
+</html>

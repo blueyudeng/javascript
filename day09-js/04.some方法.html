@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var person = [{
+            name: "lily",
+            sex: "nan",
+            age: 18
+        }, {
+            name: "xiaoming",
+            sex: "nan",
+            age: 28
+        }, {
+            name: "hanmeimei",
+            sex: "nv",
+            age: 11
+        }, {
+            name: "tom",
+            sex: "nan",
+            age: 48
+        }, {
+            name: "jery",
+            sex: "nan",
+            age: 12
+        }, {
+            name: "moning",
+            sex: "nv",
+            age: 33
+        }, {
+            name: "tony",
+            sex: "nan",
+            age: 17
+        }];
+        /* 
+            some:
+                遍历数组，判断是否符合某个条件，并返回布尔值
+                some中传入一个参数，是一个回调函数
+                回调函数接收三个参数 item(遍历得到的当前元素)，index(当前元素的下标)，arr(当前数组)
+                如果每个元素执行的回调函数有一个返回true,则some方法返回true 停止遍历;如果所有回调函数返回false，some方法直接返回false
+        
+        */
+        var re = person.some(function (item, index, arr) {
+            console.log(item, index, arr);
+            if (item.age < 18) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+        console.log(re);
+
+    </script>
+</body>
+
+</html>

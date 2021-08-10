@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        number类型代表数字类型
+     -->
+    <!-- 
+         二进制
+        0 1 10  11 100 101 110 111 1000 1001 1010 1011 1100  
+    
+        八进制
+        1 2 3 4 5 6 7 10 11 12 13 14 15 16 17 20 21 22 23
+
+        十六进制
+        0 1 2 3 4 5 6 7 8 9 a b c d e f 10 11 12 13 14 1516 17 18 19 1a 1b 1c 1d 1e 1f 20
+
+        10进制转其他进制  假如是2进制 就一直除2直到比2小除不下为止 再把余数倒着拼就可以得到对应的进制
+
+        其他进制转10进制 
+        假如有二进制的10101转十进制
+        先倒着得到每个位数的下标 从0开始 让每一位的值乘当前进制的下标次方然后累加
+        1*2^4+0*2^3+1*2^2+0*2^1+1*1^0=21
+    -->
+    <script>
+        //    整数点或者浮点数 直接输出
+        var num1 = 1;
+        var num2 = -1;
+        var num3 = 1.1;
+        var num4 = 0;
+        console.log(num1, num2, num3, num4);
+
+        //二进制 以0b开头
+        var num5 = 0b10001
+        //打印时会自用转换成十进制
+        console.log(num5);
+
+        //八进制 之前用0开头 es6之后规定用0o开头
+        var num6 = 014;
+        var num7 = 0o14;
+        console.log(num6, num7);
+
+        //十六进制 用0x开头 4个二进制对应着1个16进制位
+        var num8 = 0b10101010;
+        var num9 = 0xff;
+        console.log(num8, num9);
+
+        //Number.MAX_VALUE (能表示的正数最小值)
+        console.log(Number.MAX_VALUE);
+
+        //Number.MIN_VALUE (能表示的正数最大值)
+        console.log(Number.MIN_VALUE);
+
+        //NaN
+        console.log(0 / 0);
+        console.log("zhangsan" - 1);
+    </script>
+
+
+</body>
+
+</html>

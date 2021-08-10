@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            变量对象（VO）：
+                - 变量对象是执行上下文中重要的属性之一，是ES规范中定义的专业术语
+                - 变量对象是和执行上下文相关的数据作用域，存储了上下文中需要的变量和函数，只有变量对象被激活，里边的属性和方法才能被访问
+                - 变量对象分为全局变量对象和局部的变量对象
+                - 全局变量对象：保存的是全局的属性和方法，其实就是window对象
+                - 局部的变量对象：保存的是当前执行上下文中所有的变量声明和函数声明和形参
+                    - 先在变量对象中创建形参和实参
+                    - 检查当前执行上下文中的函数声明，并以键值对的形式放在VO中,如果和形参冲突，则覆盖形参的值
+                    - 检查当前执行上下文中的变量声明，变量的值为undefined（执行到赋值代码以后，才会被赋值）并以键值对的形式放在VO中，如果和形参或函数冲突，则不会覆盖已经存在的值
+    
+        */
+
+        function fn(a, b, c) {
+            /* var VO = {
+                arguments: {
+                    0: 1,
+                    1: 2,
+                    2: 3,
+                    length: 3
+                },
+                a: 1,
+                b: 2,
+                // c: 3,//被函数提升覆盖
+                c: 函数c,
+                d: 函数d,
+                // b: undefined,//变量的提升不能覆盖其他
+                // d: undefined, //变量的提升不能覆盖其他
+                fn: undefined
+            } */
+            console.log(a); //1
+            console.log(b); //2
+            console.log(c); //函数c
+            console.log(d); //函数d
+            console.log(fn); //undefined
+            var b = 10;
+            console.log(b); //10
+
+            function c() {
+                console.log("c");
+            }
+
+            function d() {
+                console.log("d");
+            }
+            var d = 4;
+
+            var fn = function () {
+                console.log("fn");
+            }
+        }
+        fn(1, 2, 3)
+
+
+
+        /* var a = 4;
+
+        function fn1(a) {
+            console.log(a); //1
+            var a = 2;
+            console.log(a); //2
+        }
+        fn1(1); */
+
+        /* function fn2() {
+            console.log(foo); //函数
+
+            function foo() {}
+            var foo = 1;
+        }
+        fn2(); */
+    </script>
+</body>
+
+</html>

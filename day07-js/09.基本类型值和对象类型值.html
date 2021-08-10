@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num1 = 1;
+        var num2 = num1;
+        num2 = 2;
+        console.log(num1, num2);
+
+        //基本类型值是不可变的
+        var str = "abcd"
+        //把字符串转成大写，直接返回了一个新的字符串  因为基本类型值是不可变的 但是可以替换
+        var re = str.toUpperCase();
+        console.log(str, re);
+
+    </script>
+</body>
+
+</html>

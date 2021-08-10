@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+    </ul>
+    <script>
+        var oBtn = document.getElementById('btn');
+        var oLis = document.querySelectorAll('#box li');
+        //给每一个元素绑定一个点击事件，点击变红
+        //遍历oLis
+        oLis.forEach(function (item, index) {
+            //给每个oLis绑定点击事件
+            item.onclick = function () {
+                //点击哪个哪个变红
+                this.style.background = "red"
+                //同时给点击的li添加一个自定义属性
+                this.setAttribute("fonts", true)
+            }
+        })
+
+       //当我点击btn的时候，把刚刚选中的变红的元素字号设置为40px
+    //遍历oLis
+       oLis.forEach(function (item, index) {
+            oBtn.onclick = function () {
+                //判断每个oLis是否有这个属性
+                if (item.getAttribute("fonts")) {
+                    this.style.fontSize = "40px"
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

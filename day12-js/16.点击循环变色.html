@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        /* 
+            点击循环变色
+        */
+        var oBox = document.getElementById('box')
+        // 定义一个变量初始值为true
+        /*         var flag = true;
+        
+                oBox.onclick = function () {
+                    //点击元素的时候进行判断 当flag的值为true进入第一个
+                    if (flag) {
+                        oBox.style.backgroundColor = "pink"
+                        // 反之进入第二个
+                    } else {
+                        oBox.style.backgroundColor = "red"
+                    }
+                    //每次点击完都让flag变成相反的
+                    flag = !flag
+                }
+         */
+
+
+        oBox.onclick = function () {
+            var str = "0123456789abcdef";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                var arr = parseInt(Math.random() * str.length)
+                color += str[arr];
+                this.style.backgroundColor = color;
+            }
+        }
+
+
+        var a = {},
+
+            b = { key: 'b' },
+
+            c = { key: 'c' };
+
+
+
+        a[b] = 123;
+
+        a[c] = 456
+        console.log(typeof b);
+        console.log(typeof a);
+    </script>
+</body>
+
+</html>

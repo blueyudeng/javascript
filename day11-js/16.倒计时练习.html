@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+     距离中秋节放假的倒计时
+
+ */
+        //当前时间的时间戳
+        var now = Date.now()
+        console.log(now);
+
+        //获取中秋节的时间戳
+        var zhongQiu = new Date("2021-9-20 17:00").getTime()
+        console.log(zhongQiu);
+
+        //计算两个时间戳的差
+        var sjc = zhongQiu - now;
+
+        //计算还剩多少天取整数
+        var date = parseInt(sjc / (1000 * 60 * 24 * 60))
+        date = date < 10 ? "0" + date : date;
+        console.log(date);
+
+        //拿到计算天数的余数计算小时数
+        var _date = sjc % (1000 * 60 * 24 * 60);
+        var hours = parseInt(_date / 60 / 60 / 1000)
+        hours = hours < 10 ? "0" + hours : hours;
+        console.log(hours);
+
+        //拿到计算小时的余数 来计算分钟
+        var _hours = _date % (1000 * 60 * 60)
+        var minutes = parseInt(_hours / (1000 * 60));
+        console.log(minutes);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+
+        //拿到计算分钟的余数 来计算秒
+        var _minutes = _hours % (1000 * 60);
+        var seconds = parseInt(_minutes / 1000);
+        console.log(seconds);
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        //剩余的余数就是毫秒了
+        var milli = _minutes % 1000;
+        console.log(milli);
+        console.log("距离中秋放假还剩" + date + "天" + hours + "小时" + minutes + "分" + seconds + "秒" + milli + "毫秒");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 将数组的0去掉
+       /*  var add=[1,2,3,0,4,0];
+        var re=add.filter(function(item){
+          item>0
+            return item;
+        })
+        add=re;
+        console.log(re);
+        console.log(add); */
+
+        // 数组排序去重
+/*         var add=[1,2,3,1,2,4,5,6,5,6];
+        var re=add.sort(function(a,b){
+            return a-b;
+        })
+      for(var i = 0;i<add.length  ;i++){
+          if(add.[])
+      }
+        console.log(re); */
+
+        // 返回数组的最大最小值
+  /*      var add=[1,2,3,1,2,4,5,6,5,6]
+        var re=add.sort(function(a,b){
+            return a-b;
+        })
+        console.log("数组最小值：",add.shift());
+        console.log("数组最大值：",add.pop());
+ */
+        // 求一组数中的所有数的和和平均值
+/*         
+        var re=add.reduce(function(a,b){
+            return a+b;
+        },0)
+        var bdd=re/add.length;
+        console.log(re);
+        console.log(bdd); */
+
+        // 求一组数中的最大值和最小值， 以及所在位置
+
+
+
+        // 翻转数组
+/*         var add=[1,2,3,4,5,6,7,8,9];
+        var arr=[];
+       add.forEach(function(item){
+            arr.unshift(item)
+       })
+       console.log(arr); */
+
+
+
+
+        // 数组去重复的3种方法
+      /*  var add=[1,2,3,1,2,4,5,6,5,6];
+        var bdd=[]
+        for(var i = 0;i< add.length ;i++){
+            if(bdd.indexOf(add[i])===-1){
+                bdd.push(add[i])
+            }
+        }
+        console.log(bdd); */
+
+
+        // 给定一个字符串如：“ abaasdffggghhjjkkgfddsssss3444343” 问题如下：
+        // 1.字符串的长度
+          /*   var add= "abaasdffggghhjjkkgfddsssss3444343";
+            console.log(add.length);
+ */
+        // 2.取出指定位置的字符， 如： 0, 3, 5, 9 等
+            /*     var add= "abaasdffggghhjjkkgfddsssss3444343";
+              console.log(  add.indexOf("3"));
+              var re=add.slice(26,27)
+              console.log(re); */
+
+        // 3.查找指定字符是否在以上字符串中存在， 如： i， c， b等
+     /*    var add= "abaasdffggghhjjkkgfddsssss3444343";
+          console.log(add.indexOf("i"));
+          console.log(add.indexOf("c"));
+          console.log(add.indexOf("b")); */
+
+
+        // 4.截取指定开始位置到结束位置的字符串， 如： 取得1 - 5 的字符串
+        /* var add= "abaasdffggghhjjkkgfddsssss3444343";
+        console.log(add.slice(1,6)); */
+
+
+        // 5.找出以上字符串中出现次数最多的字符和出现的次数
+  /*       var add= "abaasdffggghhjjkkgfddsssss3444343";
+        for(var i = 0;i< add.length ;i++){
+        } */
+
+
+        /* 
+            已知一个地址：
+                http://www.baidu.com?username=xiaowang&password=12345&age=18&sex=女&score=90
+            请把查询字符串数据转为对象
+                {username:"xiaowang",password:12345,age:18,sex:"女",score:90}
+        */
+     /*        var add= "http://www.baidu.com?username=xiaowang&password=12345&age=18&sex=女&score=90"
+            var re=add.split("?").slice(1).join().split("&");
+            console.log(re);
+            var bdd=Object(add);
+ */
+        /* 
+            已知我们得到的对象是：{username: "xiaowang", password: "12345", age: "18", sex: "女", score: "90"}
+            已知被拼接的url地址是：http://www.baidu.com
+            请得到完整地址：http://www.baidu.com?username=xiaowang&password=12345&age=18&sex=女&score=90
+        
+        */
+
+
+
+
+        // https: //wss.pet/s/5vc7ou1p80w 复制链接到浏览器打开
+    </script>
+</body>
+
+</html>

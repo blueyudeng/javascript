@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            定义对象：
+                -实例化Object构造函数
+                    -直接使用new调用Object构造函数，可以得到一个实例化的对象
+            
+                    -字面量（对象直接量）
+
+                    -对象的内容都是键值对（key）格式，都被称作为属性，如果这个属性值是函数，则是特殊的属性，被称作为方法
+                    -属性的值可以是任意类型
+                    -对象的key都是字符串类型的，只不过可以省略引号
+        
+        */
+
+
+        var o1 = new Object();
+        console.log(o1);
+
+        var o2 = new Object({
+            name: "zhangsan",
+            age: 18,
+            sex: "nan"
+        })
+        console.log(o2);
+
+
+        var o3 = {
+            name: "lisi",
+            age: 19,
+            sex: "nv"
+        }
+        console.log(o3);
+    </script>
+</body>
+
+</html>

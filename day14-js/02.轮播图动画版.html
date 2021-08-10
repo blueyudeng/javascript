@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #ybox {
+            width: 1180px;
+            height: 940px;
+            border: 1px solid #000;
+            position: relative;
+            margin: 100px auto;
+        }
+
+        #nbox {
+            width: 1180px;
+            display: flex;
+            overflow: auto;
+        }
+
+        #nbox img {
+            width: 1180px;
+            height: 940px;
+        }
+
+        #left,
+        #right {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        #left {
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #right {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #tscroll {
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        #tscroll li {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(255, 255, 255, .5);
+            border-radius: 50%;
+            margin: 5px;
+        }
+
+        #tscroll li#active {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ybox">
+        <div id="nbox">
+            <img src="./images/01.jpg" alt="">
+            <img src="./images/02.jpg" alt="">
+            <img src="./images/03.jpg" alt="">
+            <img src="./images/04.jpg" alt="">
+            <img src="./images/05.jpg" alt="">
+            <p id="left">&lt;</p>
+            <p id="right">&gt;</p>
+            <ul id="tscroll">
+                <li id="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+
+</html>

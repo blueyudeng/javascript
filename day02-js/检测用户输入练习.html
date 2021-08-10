@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="oIpt">
+    <button id="oBtn">登录</button>
+    <script>
+        // 1.获取表单元素
+        var oIpt = document.getElementById("oIpt")
+        var oBtn = document.getElementById("oBtn")
+
+
+        //2.给登录设置个点击事件
+
+        oBtn.onclick = function () {
+            //3.获取输入的值并赋值给变量
+            var userName = oIpt.value;
+            console.log(userName);
+            //4.先判断是不是11位数
+            if (userName.length === 11) {
+                //如果是就判断是不是纯数字
+                if (isNaN(userName)) {
+                    //如果不是纯数字返回的是true就弹出
+                    alert("有非法字符")
+                    //清空
+                    oIpt.value = "";
+                } else {
+                    alert("登录成功")
+                }
+            } else {
+                alert("用户名长度不符合规范")
+
+                //清空
+                oIpt.value = "";
+            }
+        }
+
+            // if (userName.length > 11) {
+            //     alert("账号长度大于11位")
+            // } else {
+            //     if (isNaN(userName)) {
+            //         alert("不能输入非法字符")
+            //     } else {
+            //         alert("登录成功")
+            //     }
+            // }
+    </script>
+</body>
+
+</html>

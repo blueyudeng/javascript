@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById('box')
+        document.oncontextmenu = function (e) {
+            oBox.style.display = "block"
+            //获取鼠标右键时到浏览器窗口的距离
+            var oBoxClient = {
+                left: e.clientX,
+                top: e.clientY
+            }
+            //临界值判断
+            if (oBoxClient.left >= document.documentElement.clientWidth - oBox.offsetWidth) {
+                oBoxClient.left = document.documentElement.clientWidth - oBox.offsetWidth
+            }
+            if (oBoxClient.top >= document.documentElement.clientHeight - oBox.offsetHeight) {
+                oBoxClient.top = document.documentElement.clientHeight - oBox.offsetHeight
+            }
+            //赋值
+            oBox.style.left = oBoxClient.left + "px";
+            oBox.style.top = oBoxClient.top + "px";
+            //清楚右键默认事件
+            return false;
+        }
+
+        //鼠标单击隐藏
+        document.onclick = function () {
+            oBox.style.display = "none"
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 500px;
+            height: 300px;
+            border: 1px solid #000;
+            display: flex;
+        }
+
+        #box .left {
+            width: 200px;
+            height: 300px;
+            background-color: aquamarine;
+        }
+
+        #box .center {
+            width: 100px;
+            height: 300px;
+            background-color: chocolate;
+        }
+
+        .center button {
+            width: 100px;
+            height: 40px;
+
+            margin: 30px 0;
+        }
+
+        #box .right {
+            width: 200px;
+            height: 300px;
+            background-color: rgb(248, 77, 162);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">
+        <ul class="left">
+            <li>左侧的con1</li>
+            <li>左侧的con2</li>
+            <li>左侧的con3</li>
+            <li>左侧的con4</li>
+        </ul>
+        <div class="center">
+            <button id="toRight">&gt;&gt;&gt;&gt;</button>
+            <button id="toLeft">&lt;&lt;&lt;&lt;</button>
+        </div>
+        <ul class="right">
+            <li>右侧的con1</li>
+            <li>右侧的con2</li>
+            <li>右侧的con3</li>
+            <li>右侧的con4</li>
+        </ul>
+    </div>
+    <script>
+        var oLeftLis = document.querySelectorAll('.left li');
+        var oRightLis = document.querySelectorAll('.right li');
+        var oLeft = document.querySelector('.left');
+        var oRight = document.querySelector('.right');
+        var oToRight = document.getElementById('toRight')
+        var oToLeft = document.getElementById('toLeft')
+
+        //遍历左边的li
+        oLeftLis.forEach(function (item, index) {
+            //给每个li绑定点击事件
+            item.onclick = function () {
+                //点击哪个就添加背景颜色 同时添加自定义属性做标记
+                this.style.background = "red";
+                this.dataset.yyds = "true";
+            }
+        });
+        //遍历右边的li
+        oRightLis.forEach(function (item, index) {
+            //给每个li绑定点击事件
+            item.onclick = function () {
+                //点击哪个就给哪个添加背景颜色 同时添加自定义属性yyds做标记
+                this.style.background = "red";
+                this.dataset.yyds = "true";
+            }
+        });
+
+
+        oToRight.onclick = function () {
+            //因为每次移动后，元素会更新，所以重新获取所有的li
+            var oLeftLis = document.querySelectorAll('.left li');
+            //遍历左边的li
+            oLeftLis.forEach(function (item, index) {
+                //做判断 看是否有li有自定义属性yyds
+                if (item.dataset.yyds) {
+                    //有就把这个li添加到右边的ul的末尾
+                    oRight.appendChild(item);
+                    //同时删除身上的自定义属性
+                    delete item.dataset.yyds;
+                    item.style.background = "transparent"
+                }
+            })
+        };
+
+        oToLeft.onclick = function () {
+            //因为每次移动后，元素会更新，所以重新获取所有的li
+            var oRightLis = document.querySelectorAll('.right li');
+            //遍历右边的li
+            oRightLis.forEach(function (item, index) {
+                //做判断 看是否有li有自定义属性yyds
+                if (item.dataset.yyds) {
+                    //有就把这个li添加到左边的ul的末尾
+                    oLeft.appendChild(item);
+                    //同时删除身上的自定义属性
+                    delete item.dataset.yyds;
+                    item.style.background = "transparent"
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 4000px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn1">test</button>
+    <button id="btn2">传统</button>
+    <button id="btn3">多线程</button>
+    <script>
+        var oBtn1 = document.getElementById('btn1');
+        var oBtn2 = document.getElementById('btn2');
+        var oBtn3 = document.getElementById('btn3');
+
+        //传统大量计算
+        oBtn2.onclick = function () {
+            var count = 0;
+            for (var i = 0; i < 1000000000; i++) {
+                count += Math.sqrt(i);
+            }
+            console.log(count);
+        }
+
+        //多线程
+        oBtn3.onclick = function () {
+            //创建多线程  new Worker(文件名)
+            var ww = new Worker("worker.js")
+
+            ww.postMessage(100000)
+
+            //如果有数据传回 接收方式和分线程接收主线程的方式一样
+            ww.onmessage = function (e) {
+                console.log(e.data);
+            }
+        }
+    </script>
+</body>
+
+</html>

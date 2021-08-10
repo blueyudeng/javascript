@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            定义正则：
+                -实例化构造函数
+                    new RegExp("","gi")
+                    g:全局匹配
+                    i:不区分大小写
+
+                -字面量
+                    /规则/gi
+
+         */
+
+        var RegExp1 = new RegExp("\\d+", "gi")
+        var str1 = "qwequ1hjas1312j3hjad"
+        //match() 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。
+        var re = str1.match(RegExp1);
+        console.log(re);
+
+        //  这里的 \ 代表转意
+        var RegExp2 = /\d+/gi;
+        var str2 = "qwequ1hjas1312j3hjad";
+        var re2 = str2.match(RegExp2);
+        console.log(re2);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .progress {
+            width: 600px;
+            height: 50px;
+            border: 2px solid #000;
+        }
+
+        .pers {
+            width: 0%;
+            height: 50px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress">
+        <div class="pers"></div>
+    </div>
+    <p>已经加载了 <span id="con">0%</span></p>
+    <script>
+        var oPers = document.querySelector(".pers")
+        console.log(oPers);
+        var oCon = document.getElementById('con')
+
+        var count = 0;
+        for (var i = 0; i < 30; i++) {
+            var oImg = new Image();
+            oImg.scr = "../../images/" + (i < 10 ? "0" + i : i) + ".jpg"
+            console.log(oImg);
+            oImg.onload = function () {
+                count++;
+                var scale = count / 30;
+                console.log(scale);
+                var percentage = parseInt(scale * 100) + "%"
+
+                oPers.style.width = percentage;
+                oCon.textContent = percentage;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

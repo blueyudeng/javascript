@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function add(arr) {
+            //首先添加一个空数组
+            var bdd = [];
+            //作判断 当arr数组还有长度的时候就一直循环
+            while (arr.length > 0) {
+                //bdd每次添加arr最后一位元素
+                bdd.push(arr.pop())
+            }
+            return bdd;
+        }
+        var re = add([1, 2, 3, 4, 5, 6, 7])
+        console.log(re);
+    </script>
+</body>
+
+</html>

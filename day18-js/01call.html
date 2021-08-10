@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            call:
+                -所有的函数都可以调用call方法
+
+                -作用：
+                    -调用了函数
+                    -改变函数的上下文对象为自己的第一个参数
+
+                -call参数
+                    -参数1：调用的函数的this指向
+                    -后边的参数：一次传给函数的实参
+
+                    call的返回值就是函数的返回值
+
+                    改变后的上下文对象种类分为三种
+                        object类型：这改变后的上下文对象就是这个object类型值
+                        包装类型：改变后的上下文对象就是这个包装类型的包装对象
+                        null和undefined：这个上下文对象为window
+        */
+
+        function fn(a, b) {
+            console.log(this, a + b);
+
+            return "123"
+        }
+
+        var o = {
+            name: "abcd"
+        }
+
+        var re = fn.call(o, 1, 2)
+        console.log(re);
+
+        fn.call(1, 1, 2);
+        fn.call([], 1, 2);
+        fn.call(null, 1, 2);
+        fn.call(undefined, 1, 2);
+        fn.call("1", 1, 2);
+        fn.call(function () { }, 1, 2);
+        fn.call(Object, 1, 2);
+        fn.call(false, 1, 2);
+
+
+        //练习1：类数组转数组
+        var likeArr = {
+            0: "a",
+            1: "b",
+            2: "c",
+            3: "d",
+            length: 4
+        }
+
+
+        //slice可以返回被截取的数组 在数组的方法你找到slice方法 用call调用这个方法 使其this指向likeArr
+        var re = Array.prototype.slice.call(likeArr)
+        console.log(re);
+
+
+        //练习2：让forEach遍历类数组
+        var likeArr = {
+            0: "a",
+            1: "b",
+            2: "c",
+            3: "d",
+            length: 4
+        }
+
+        Array.prototype.forEach.call(likeArr, function (item, index) {
+            console.log(item, index);
+        })
+
+        //练习3
+        function fn1() {
+            console.log(1);
+        }
+
+        function fn2() {
+            console.log(2);
+        }
+
+        //这个函数里并没有this指向 所以仅仅使调用
+        fn1.call(fn2);//1
+
+        //(fn1.call).call(fn2) 前面的this指向被后面的call改到了fn2
+        fn1.call.call(fn2)//2
+
+
+        fn1.call.call.call(fn2)//2
+
+        console.log(fn1.call.call.call);
+
+    </script>
+</body>
+
+</html>

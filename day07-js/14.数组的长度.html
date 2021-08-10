@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            数组的长度：
+                -length属性 可以获取数组的长度
+                -数组的长度不但可以获取，还可以设值
+                    -如果设值的长度小于原来的长度，则把多余的值删掉
+                    -如果设值的长度大于原来的长度，则多余的长度的值是undfined
+        */
+        var arr = [1, 2, 3, 4, 5, 6]
+        console.log(arr.length);
+        arr.length = 1;
+        console.log(arr);
+        arr.length = 2;
+        console.log(arr);
+    </script>
+</body>
+
+</html>

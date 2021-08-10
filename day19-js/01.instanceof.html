@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+        A.instanceof B:
+            -B是一个构造函数，判断B的原型对象是否在A的原型链上
+            - 如果存在则返回true 否则返回false 
+        
+        
+         */
+        function Foo() { }
+        var fn = new Foo();
+        console.log(fn instanceof Object);
+
+        console.log(Function instanceof Object);
+
+    </script>
+</body>
+
+</html>

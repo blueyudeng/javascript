@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        var oBox = document.getElementById('box');
+        var oBtn = document.getElementById('btn');
+        var oLis = document.querySelectorAll('#box li')
+        oBtn.onclick = function () {
+            var newLi = document.createElement("li");
+            var newCons = document.createTextNode("新的li");
+            newLi.appendChild(newCons);
+            /*    //A.appendChild(B):在父节点A的尾部插入节点B 也可以是插入已经存在的元素
+               oBox.appendChild(newLi);
+   
+               //把某个已经存在的元素 插入到oBox的末尾
+               oBox.appendChild(oLis[1])
+    */
+            /* 
+            A.inserBefore(新元素元素，某个旧元素)
+                在父元素A里面的某个元素前面插入新元素
+            */
+            // oBox.insertBefore(newLi, oLis[3])
+            oBox.insertBefore(oLis[4], oLis[3])//把某个已经存在的元素插入到某个元素的前面
+
+        }
+    </script>
+</body>
+
+</html>

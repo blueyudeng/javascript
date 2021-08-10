@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //string方法可以把任意类型转成字符串  基本数据类型都是直接加引号
+        console.log(String(1));//"1"
+        console.log(String(1.1));//"1.1"
+        console.log(String(-1));//"-1"
+        console.log(String(null));//"null"
+        console.log(String(undefined));//"undefined"
+        console.log(String(true));//"true"
+        console.log(String(false));//"fales"
+        //对象数字类型中object会转为"[object Object]"函数直接加引号 数字是去掉中括号加引号 
+        console.log(String([1]));//"1"
+        console.log(String([1, 1]));//"1,1"
+        console.log(String({}));//"[object Object]"
+        console.log(String(function () { }));//"function () { }"
+        console.log(String(Infinity));//"infinity"
+        console.log(String(0b111));//  "7"    其他进制先转十进制再转字符串
+
+        //toString方法 除了null和undefined都可以用 作用和String方法相同
+        console.log((1).toString())//"1"
+        console.log((-1).toString())//"-1"
+        console.log((1.1).toString())//"1.1"
+        console.log((true).toString())//"true"
+        console.log((false).toString())//"fales"
+        console.log(([]).toString())//""
+        console.log(([1]).toString())//"1"
+        console.log(([1, 1]).toString())//"1,1"
+        console.log(({}).toString())//"[object Object]"
+        console.log((Infinity).toString())//"Infinity"
+        console.log((function () { }).toString())//"function () { }"
+        console.log((0x1321).toString());;// "4897"   其他进制先转十进制再转字符串
+
+
+    </script>
+</body>
+
+</html>

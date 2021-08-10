@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var userInput = +prompt("请按键1(取钱)2(余额)3(存钱)4(退出)");
+
+        //用户取钱的逻辑
+        switch (userInput) {
+            case 1:
+                gei()
+                break;
+            case 2:
+                yu()
+                break;
+            case 3:
+                cun()
+                break;
+            case 4:
+                tui()
+                break;
+            default:
+                alert("操作失败")
+        }
+
+
+        function gei() {
+            alert("给你钱");
+        }
+
+        function yu() {
+            alert("还有0.01");
+        }
+
+        function cun() {
+            alert("已存款0.01");
+        }
+
+        function tui() {
+            alert("out");
+        }
+
+
+    </script>
+</body>
+
+</html>

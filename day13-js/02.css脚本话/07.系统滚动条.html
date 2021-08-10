@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        #btn {
+            margin-top: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">点我</button>
+    <script>
+        var oBtn = document.getElementById('btn');
+        oBtn.onclick = function () {
+            //根元素scrollTop和scrollLeft属性可以获取系统滚动条的位置
+            console.log(document.documentElement.scrollTop);
+            //window对象的pageXoffset和pageYoffset获取系统滚动条的位置
+            console.log(window.pageYOffset);
+
+
+            // document.documentElement.scrollTop = 200;
+
+            /* 
+            设置系统滚动条的位置
+                - 根元素的scrollTop和scrollLeft属性 可以直接设置系统滚动条的位置
+                - window.scrollTo(x,y) 可以设置系统滚动条的位置 (全兼容)
+             */
+            window.scrollTo(0, 100)
+        }
+
+    </script>
+</body>
+
+</html>

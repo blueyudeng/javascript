@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            let声明：
+                用来声明变量,语法类似var 但是所声明的变量，只能在块作用域中有效，相当于提供了作用域
+                特点：
+                    -声明的变量符合块作用域
+                    -块作用域也可以任意嵌套，也有作用域链
+                    -没有声明提升
+                    -不允许重复声明
+        */
+
+        //声明的变量符合块作用域
+        /*         let a = 1;
+                {
+                    let b = 1;
+                }
+                console.log(a);//1
+                console.log(b);//报错 */
+
+        //块作用域也可以任意嵌套，也有作用域链
+        /*      {
+                 let a = 1;
+                 {
+                     let b = 2;
+                     console.log(a);//1
+                     console.log(b);//2
+                 }
+             } */
+
+        //没有声明提升 但是也会优先检测自己的
+        /*       let a = 1
+              {
+                  console.log(a);
+                  let a = 1;
+              } */
+
+        //   不允许重复声明
+        /*       let a = 1;
+              let a = 2;
+              console.log(let); */
+
+        //for循环中的i
+        // 根据以下的分析，可以得到结论：for循环中条件声明语句中的i是独立的作用域，是for语句的代码块的父作用域
+        for (let i = 0; i < 5; i++) {
+            //验证i也不属于for的块级作用域
+            // let i = 123;
+            console.log(i);
+        }
+
+        for (var i = 0; i < 5; i++) {
+            setTimeout(function () {
+                console.log(i);//5个5
+            })
+        }
+
+        //因为let的i是块级，并且for的小括号是for代码块的父作用域，定时器是一个函数和外层的块作用域构成了闭包
+        for (let i = 0; i < 5; i++) {
+            setTimeout(function () {
+                console.log(i);//01234
+            })
+        }
+    </script>
+</body>
+
+</html>

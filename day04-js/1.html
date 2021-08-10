@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="ipt">请输入用户成绩：</label><input type="text" id="ipt">
+    <button id="btn">查询</button>
+    <p id="cj"></p>
+    <script>
+        /*         var name = "lisi"
+                switch (name) {
+                    case "lisi":
+                        alert("前端");
+                        break;
+                    case "zhangsan":
+                        alert("后端");
+                        break;
+                } */
+        var oIpt = document.getElementById("ipt");
+        var oBtn = document.getElementById("btn");
+        var oCj = document.getElementById("cj");
+
+        oBtn.onclick = function () {
+            var oIptValue = +ipt.value;
+            oIptValue = parseInt(oIptValue / 10);
+            switch (oIptValue) {
+                case 9:
+                    oCj.textContent = "S";
+                    break;
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

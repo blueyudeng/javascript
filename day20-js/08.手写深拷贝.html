@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function checkType(obj) {
+            return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
+        }
+        function deepClone(obj) {
+            //先判断 拷贝的是对象还是数组还是其他类型
+            if (checkType(obj) === "object") {
+                //如果是对象就创建一个对象
+                var o = {}
+            } else if (checkType(obj) === "array") {
+                // 如果是数组就创建一个数组
+                var o = []
+            } else {
+                //如果不是对象或者数组，则直接返回这个值
+                return obj
+            }
+
+            for (var key in obj) {
+                o[key] = deepClone(obj[key])
+            }
+            return o;
+        }
+
+        var o1 = {
+            name: "张三",
+            age: 18,
+            do: function () {
+
+            },
+            girlFri: ["小红", "小兰", "小绿"]
+        }
+
+
+        var o2 = deepClone(o1);
+        console.log(o2);
+        console.log(o2 === o1);
+        console.log(o2.girlFri === o1.girlFri);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">box</div>
+    <script>
+
+        /* 
+        event事件对象：
+                - event对象由事件自动创建,记录了当前事件的状态,如事件发生的源节点、键盘按键的响应状态、鼠标指针的移动位置等等
+                - 传统方法在事件函数中会给window对象添加一个event属性，保存的就是event事件对象
+                - 在事件函数的调用的时候，会自动的传入一个实参event对象，我们接收即可使用
+        
+        */
+        var oBox = document.getElementById('box')
+        oBox.onclick = function (e) {
+            console.log(e);
+        }
+    </script>
+</body>
+
+</html>

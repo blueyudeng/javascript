@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //生成[0-30)的随机整数
+        console.log(Math.floor(Math.random() * 30));
+
+        //生成[10-30)的随机整数
+        console.log(Math.floor(Math.random() * 20 + 10));
+
+        //封装一个生成[a-b] 的随机整数的函数
+        function random(a, b) {
+            return Math.floor(Math.random() * (b - a) + a);
+        }
+        var re = random(1, 10);
+        console.log(re);
+    </script>
+</body>
+
+</html>

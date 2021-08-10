@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 求1 - n之间所有数的和
+        /*        function add(n) {
+                   var sum = 0
+                   for (var i = 1; i <= n; i++) {
+                       sum += i;
+                   }
+                   return sum;
+               }
+               var re = add(12);
+               console.log(re); */
+
+        // 求n - m之间所有数的和
+        /*    function add(a, b) {
+               var sum = 0;
+               for (var i = a; i <= b; i++) {
+                   sum += i;
+               }
+               return sum;
+           }
+           var re = add(1, 11);
+           console.log(re); */
+
+        // 圆的面积
+        /*  var oBj = +prompt("请输入半径");
+         var oPz = 3.14;
+         var oMj = alert("圆的面积为" + oBj * oBj * oPz) */
+
+        /*     function add(n) {
+                var sum = n * n
+                return sum * 3.14;
+            }
+            var bdd = add(2);
+            console.log(bdd); */
+
+
+        // 求2个数中的最大值
+        /*         function add(a, b) {
+                    if (a > b) {
+                        alert(a)
+                        return a;
+                    } else {
+                        alert(b)
+                        return b;
+                    }
+                }
+                var bdd = add(2, 1)
+                console.log(bdd); */
+        // 求3个数中的最大值
+        function add(a, b, c) {
+            if (a - b > 0 && a - c > 0) {
+                return a;
+            }
+            if (b - a > 0 && b - c > 0) {
+                return b;
+            }
+            if (c - a > 0 && c - b > 0) {
+                return c;
+            }
+        }
+        var bdd = add(1, 4, 2);
+        console.log(bdd);
+
+        // 判断一个数是否是素数(又叫质数， 只能被1和自身整数的数)
+        // function add(a) {
+        //     var sum = 0
+        //     for (var i = 1; i < a; i++) {
+        //         sum += 1;
+        //         if (a % sum === 0) {
+        //             return a;
+        //         } else {
+        //             console.log("1123");
+        //         }
+        //     }
+        // }
+        // var re = add(4);
+        // console.log(re);
+
+        // 依次输出0-n内的所有的质数
+
+        // 求任意个数的最大值
+        // 求任意个数的和
+        /*    function add() {
+               var bdd = arguments[0]
+               for (var i = 1; i < arguments.length; i++) {
+                   bdd += arguments[i];
+               }
+               return bdd;
+           }
+           var cdd = add(1, 2, 3, 3, 4);
+           console.log(cdd); */
+
+    </script>
+</body>
+
+</html>

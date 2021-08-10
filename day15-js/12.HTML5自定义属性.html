@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <img class="con" id="img" src="./images/01.jpg" alt="狗子哥" data-uzi="xiaogou" yyds="yyds">
+    <script>
+        var oImg = document.getElementById('img');
+        var oBtn = document.getElementById('btn');
+        oBtn.onclick = function () {
+            //增
+            oImg.dataset.wuzi = "uzi";
+
+            //删
+            delete oImg.dataset.uzi;
+
+            //改
+            oImg.dataset.yyds = "dsyy"
+            console.log(oImg);
+
+            //查
+            console.log(oImg.dataset.yyds);
+        }
+    </script>
+</body>
+
+</html>

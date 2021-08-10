@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //箭头函数没有自己的this指向 会到外面去找this  也不能new关键字掉用 没有arguments对象
+        //箭头函数的正常写法
+        function fn1(a) {
+            return "fn1"
+            console.log(a);
+        }
+        fn1(1)
+        /* //j箭头函数
+        const fn11 = () => {
+            return "fn11"
+        } */
+
+        //2.当函数的形参只有一个的时候，可以省略小括号
+        /* const fn11 = a => {
+            console.log(a);//1
+        }
+        fn11(1) */
+
+        //3.当函数体是一句话的时候，可以省略大括号
+        /* const fn11 = a => console.log(a);
+        fn11(1)//1 */
+
+        //4.函数体是一句话，并且还是return语句的时候，可以省略大括号和return
+        const fn11 = a => 1123
+        const re = fn11(2)
+        console.log(re);//1123
+    </script>
+</body>
+
+</html>

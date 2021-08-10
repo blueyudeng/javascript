@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            封装：
+                封装的目的是将信息隐藏，分为封装数据和封装实现
+                封装数据：
+                    我们本身就是使用函数的作用域来封装数据
+                封装实现：
+                    隐藏实现细节，封装使得对象内部的变化对其他对象而言是不看见的，对象对它的行为负责，其他对象或者用户都不关系他内部实现，只关心如何使用
+            多态：
+                js对象多态性是与生俱来的：同一操作作用于不同的对象上，可以产生不同的解释和不同的执行结果，也就是说，给不同的对象发送给同一个消息时，这些对象会根据这个消息分别给出不同的反馈
+        
+        */
+
+        function Dog() {
+
+        }
+
+        Dog.prototype.eat = function () {
+            console.log("吃狗粮");
+        }
+
+        function Cat() {
+
+        }
+
+        Cat.prototype.eat = function () {
+            console.log("吃猫粮");
+        }
+
+        function getEat(obj) {
+            obj.eat();
+        }
+
+        //多态：将同一个指令给不同的对象，对象会根据指令执行不同的操作
+        getEat(new Dog)
+        getEat(new Cat)
+    </script>
+</body>
+
+</html>

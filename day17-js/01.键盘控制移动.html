@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById('box')
+        //初始化两个值
+        var oBoxLeft = 0,
+            oBoxTop = 0;
+        //设值四个开关 初始值为false
+        var flagLeft = false,
+            flagTop = false,
+            flagRight = false,
+            flagBotton = false;
+        //键盘按下为true
+        document.onkeydown = function (e) {
+            var key = e.keyCode;
+            switch (key) {
+                case 37:
+                    flagLeft = true;
+                    break;
+                case 38:
+                    flagTop = true;
+                    break;
+                case 39:
+                    flagRight = true;
+                    break;
+                case 40:
+                    flagBotton = true;
+                    break;
+
+            }
+        }
+        //键盘抬起为true
+        document.onkeyup = function (e) {
+            var key = e.keyCode;
+            switch (key) {
+                case 37:
+                    flagLeft = false;
+                    break;
+                case 38:
+                    flagTop = false;
+                    break;
+                case 39:
+                    flagRight = false;
+                    break;
+                case 40:
+                    flagBotton = false;
+                    break;
+            }
+        }
+
+
+        setInterval(function () {
+            if (flagLeft) {
+                oBoxLeft -= 10
+                console.log("left");
+            }
+            if (flagTop) {
+                oBoxTop -= 10
+                console.log("top");
+            }
+            if (flagRight) {
+                oBoxLeft += 10
+                console.log("right");
+            }
+            if (flagBotton) {
+                oBoxTop += 10
+                console.log("top");
+            }
+            //临界值判断
+            if (oBoxLeft >= document.documentElement.clientWidth - oBox.offsetWidth) {
+                oBoxLeft = document.documentElement.clientWidth - oBox.offsetWidth
+            }
+            if (oBoxLeft < 0) {
+                oBoxLeft = 0
+            }
+            if (oBoxTop >= document.documentElement.clientHeight - oBox.offsetHeight) {
+                oBoxTop = document.documentElement.clientHeight - oBox.offsetHeight
+            }
+            if (oBoxTop < 0) {
+                oBoxTop = 0
+            }
+
+            oBox.style.left = oBoxLeft + "px";
+            oBox.style.top = oBoxTop + "px";
+        }, 10);
+
+    </script>
+</body>
+
+</html>

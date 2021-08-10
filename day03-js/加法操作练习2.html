@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">递增</button><br>
+    <p id="num">
+        0
+    </p>
+    <script>
+        var oBtn = document.getElementById("btn");
+        var oNum = document.getElementById("num");
+        //设值一个变量，给变量一个初始值
+        var num1 = 0;
+        oBtn.onclick = function () {
+            //让每次点击的时候变量都加2
+            num1 += 2;//num1=num1+2
+            console.log(num1);
+            //设置或者获取元素的内容使用 textContent 属性
+            oNum.textContent = num1;
+
+        }
+    </script>
+
+</html>

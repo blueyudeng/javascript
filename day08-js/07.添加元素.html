@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            添加元素：
+                -push:在数组末尾添加一个或多个元素
+                -unshift:在数组开头添加一个或多个元素
+                -length:设置长度大于原来的值，可以添加值为undfined的空元素
+                -concat():可以在数组的末尾添加一个或多个值
+                    -原数没有改变
+                    -返回了添加元素后的新数组
+                    -如果添加的值是一个数组，则可以拆开一层数组
+                -splice():
+                    -参数1:选中数组中元素的下标
+                    -参数2:从参数一开始删除元素的个数
+                    后面的参数:把一个或多个元素依次插入参数1元素的后面
+        
+        */
+
+        var arr = ["a", "b", "c", "d", "e", "f", "g", "h"];
+        // concat():可以在数组的末尾添加一个或多个值
+        var re = arr.concat(1, 2, 3);
+        console.log(arr);
+        console.log(re);
+        var re = arr.concat(1, [2], [3])
+        console.log(re);
+
+        var re2 = arr.splice(1, 0, 1, 2, 3);
+        console.log(re2);
+        console.log(arr);
+    </script>
+</body>
+
+</html>

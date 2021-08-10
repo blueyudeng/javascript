@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            prototype:
+                - 每一个函数都有一个prototype属性(显示原型)，指向一个对象(原型对象)
+                -我们可以给构造函数的原型对象扩展属性和方法，则所有的额实例化对象都能访问到这些属性和方法
+                -原型对象默认是一个除了constructor属性的空对象
+                -只有构造函数的原型对象才有意义，因为普通函数没有实例化对象(函数被new调用,就是构造函数)
+    
+                constructor：
+                    -构造器属性
+                    -每一个原型对象都有construtor属性 代表的是当前原型对象的构造函数
+        */
+
+        function fn() { }
+        fn.prototype.etc = function () {
+            return "ect"
+        }
+        console.log(fn.prototype);
+        var fn1 = new fn();
+        console.log(fn1.etc());
+
+    </script>
+</body>
+
+</html>

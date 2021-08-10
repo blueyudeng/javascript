@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">走你~</button>
+    <div id="box">
+        <span>span</span>
+    </div>
+    <script>
+
+        /* 
+          获取和设置元素的内容：
+              innerHTML（读取或插入HTML字符串）：
+                  获取：把html标签当做字符串读取出来了
+                  设置：把字符串中的html标签直接解析了，直接替换原有内容
+
+              innerText（读取或插入文本）：
+                  获取：只读取文本内容 忽略HTMl标签
+                  设置：不会解析html标签，直接替换原有内容
+      */
+        var oBtn = document.getElementById('btn');
+        var oBox = document.getElementById('box')
+
+        oBtn.onclick = function () {
+            console.log(oBox.innerHTML);
+            console.log(oBox.innerText);
+
+            // oBox.innerHTML = ' <a href="#">点我</a>';
+            oBox.innerText = ' <a href="#">点我</a>';
+        }
+    </script>
+</body>
+
+</html>

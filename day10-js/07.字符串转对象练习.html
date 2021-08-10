@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            已知一个地址：
+                http://www.baidu.com?username=xiaowang&password=12345&age=18&sex=女&score=90
+            请把查询字符串数据转为对象
+                {username:"xiaowang",password:12345,age:18,sex:"女",score:90}
+        */
+
+        var str = "http://www.baidu.com?username=xiaowang&password=12345&age=18&sex=女&score=90"
+        //首先把字符串转数组并把?以及?前面的字符串去掉 在把数组用&分开用
+        var bdd = str.split("?")[1].split("&");
+        console.log(bdd);
+        var re = bdd.reduce(function (p, c) {
+            //把每一个元素用以等号分开 赋值给一个新数组
+            var everArr = c.split("=")
+            console.log(everArr);
+            //把新数组的第一个元素给一个变量作为对象的key
+            var objKey = everArr[0];
+            //第二个值赋值给一个变量作为key的值
+            var objKeyValue = everArr[1]
+            p[objKey] = objKeyValue;
+            return p
+        }, {})
+        console.log(re);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+#outer {
+  width: 800px;
+  height: 800px;
+  background-color: green;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+#outer #inner {
+  width: 600px;
+  height: 600px;
+  background-color: yellow;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+#outer #inner #con {
+  width: 200px;
+  height: 100px;
+  background-color: yellow;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}

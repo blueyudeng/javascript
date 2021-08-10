@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            bind:
+                -和call的写法和传参类似，但是作用有些差异
+                -bind的作用
+                    -改变函数的this指向自己的第一个参数
+                    返回一个被改变this的函数
+
+        */
+        function fn(a, b) {
+            console.log(this, a + b);
+        }
+
+        var re = fn.bind("123", 1, 2)
+        console.log(re);
+        re()
+
+
+        document.onclick = function () {
+            setInterval((function fn() {
+                console.log(this);
+            }).bind(this), 2000)
+        }
+
+    </script>
+</body>
+
+</html>

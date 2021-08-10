@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*     进制转换格式为parseInt("A", B) A为一个字符串的类型 B就是他的类型进制  
+            即parseInt("ffff", 16)就是16进制的ffff   parselnt的作用就是把B进制的A转换为十进制 */
+        console.log(parseInt("ffff", 16));//65535
+        console.log(parseInt("1324", 8));//724
+        console.log(parseInt("10000", 2));//16
+
+        /*   如果出现错误则返回NaN 比如书写一个8进制的888
+          如果B是0，则默认为10进制，B不能是1，因为没有1进制 */
+        console.log(parseInt("888", 8));//NaN
+        console.log(parseInt("0", 8));//0
+        console.log(parseInt("0", 1));//NaN
+        console.log(parseInt("0", 0));//0
+
+        // a.toString(b)就是把十进制的a转换为b进制的数值
+        var a = 123;
+        console.log(a.toString(16));
+
+        var b = 123;
+        console.log(b.toString(2));
+    </script>
+</body>
+
+</html>

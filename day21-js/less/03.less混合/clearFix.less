@@ -1,0 +1,14 @@
+.clearFix() {
+    *zoom: 1;
+
+    &:after {
+        content: "\200B";
+        height: 0;
+        display: block;
+        clear: both
+    }
+}
+
+#outer {
+    .clearFix();
+}

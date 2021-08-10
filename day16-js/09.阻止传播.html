@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            overflow: hidden;
+        }
+
+        #con {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="con"></div>
+    </div>
+    <script>
+        var oBox = document.getElementById('box')
+        var oCon = document.getElementById('con')
+
+        oBox.onclick = function () {
+            console.log("document");
+        }
+
+        oCon.onmousedown = function () {
+            console.log("mousedown");
+        }
+
+        oCon.onmouseup = function () {
+            console.log("mouseup");
+        }
+
+        oCon.onclick = function (e) {
+
+            //e.stopPropagation() 阻止事件的冒泡或者捕获
+            e.stopPropagation()//阻断点击事件的传播
+        }
+    </script>
+</body>
+
+</html>

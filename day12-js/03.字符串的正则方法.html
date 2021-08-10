@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //match(正则):在字符串中检测，把符合规范的字符串提取出来，组成一个数组返回
+        var reg = /\d/gi;
+        var str = "a13jj1jh3kljk221l11";
+        var re1 = str.match(reg);
+        console.log(re1);
+
+        //search(正则):在字符串中符合当前正则的字符 第一次出现的位置 如果没有则返回-1
+        var re2 = str.search(reg);
+        console.log(re2);//1
+
+        //replace(正则，value):在字符串中检测符合正则的字符串 替换为value
+        /*  var re3 = str.replace(reg, "*");
+         console.log(re3);//a*jj*jh*kljk*k*l* */
+
+        var reg2 = /傻逼|你妈|废物物/gi
+        var str2 = "你怎么这么傻逼啊，你玩你妈的，真是个废物物";
+        /* var re3 = str2.replace(reg2, "*");
+        console.log(re3);//你怎么这么*啊，你玩*的，真是个* */
+        //replace第二个参数可以接受一个函数，函数的参数就是每回匹配到的值
+        //每次匹配到的值被替换为当前函数的返回值
+        var re3 = str2.replace(reg2, function (a) {
+            console.log(a);
+            var l = a.length;
+            var r1 = "";
+            for (var i = 0; i < l; i++) {
+                r1 += "*"
+            }
+            return r1;
+        })
+        console.log(re3);//你怎么这么**啊，你玩**的，真是个***
+
+    </script>
+</body>
+
+</html>

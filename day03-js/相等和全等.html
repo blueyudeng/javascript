@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // == 相等，如果类型不一样则会进行隐式类型转换；
+        console.log(1 == 1);//true
+        console.log("1" == 1);//true
+        console.log("1" == "1");//true
+        console.log("abc" == "abc");//true
+        console.log(true == false);//false
+        console.log(true == 1);//true
+        console.log(true == "1");//true
+        console.log(false == 0);//true
+        console.log(false == "0");//true
+        //特殊：null不等于0 null和undefined相等
+        console.log(null == 0);//false
+        console.log(null == undefined);//true
+        //对象和对象比较都是地址的比较
+        console.log({} == {});//false
+        //如果只是一个对象，则也会进行类型转换
+        console.log({} == "[object Object]");//true
+
+
+        // === 全等，先比较两个值的类型是否相等，再比较值是否相等
+        console.log(1 === 1);//true
+        console.log("1" === 1);//false
+        console.log("1" === "1");//true
+        console.log(true === 1);//false
+        console.log(false === 0);//false
+        console.log(null === undefined);//false
+        console.log({} === {});//false
+
+        //  != 不相等，会把类型转后再进行比较
+        console.log("1" != 1);//false
+        console.log("!" != 2);//true
+
+        // !==先比较类型是否相等 再比较值是否相等 有一个不相等则返回true 都相等返回false
+        console.log("1" !== 2);//true
+        console.log("1" !== "2");//true
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            常量
+                -使用const来声明常量
+                -有时候值是不能被改变的，我们使用常量保存这个值
+                -特点：
+                    -值不可变
+                    -如果常量保存的是一个地址值，地址对应的值发生变化，只要地址不变，则是允许的
+                    -一但声明变量，就必须立刻初始化，不能留到以后赋值
+                    - const声明的变量支持块作用域
+                    - const命令声明的常量也是不提升
+                    - const声明的常量，也与let一样不可重复声明
+                    -let和const声明的变量或全局函数 不再是window对象上的属性和方法，和window脱离
+        */
+
+        // 值不可变
+        /*     const a = 1;
+            a = 2;
+            console.log(a);//报错 */
+
+        //如果常量保存的是一个地址值，地址对应的值发生变化，只要地址不变，则是允许的
+        /*     const a = {
+                name: "zhangsan "
+            }
+            a.name = "lis"
+            console.log(a);
+            a = {}
+            console.log(a);//报错 */
+
+        //一旦声明变量，就必须立即初始化，不能留到以后赋值
+
+        /*        const a;
+               a = 1;
+               console.log(a);//报错 */
+
+        // let const声明的全局变量或全局函数， 不再是window对象的属性和方法， 和window脱离
+        /*  const a = 1;
+         console.log(window.a);//undefined */
+    </script>
+</body>
+
+</html>

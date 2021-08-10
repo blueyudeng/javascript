@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            判断B的原型对象 是否在A的原型链上
+         */
+        function myInstanceof(A, B) {
+            //先获取到B的原型对象
+            B = B.prototype;
+            //判断A通过隐私原型是否指向B的原型对象
+            while (A.__proto__) {
+                //如果指向则退出循环返回true
+                if (A.__proto__ === B) {
+                    return true;
+                } else {
+                    // 如果判断失败就去A的上级寻找
+                    A = A.__proto__;
+                }
+            }
+            //如果一直没找到就反回false
+            return false;
+        }
+
+        console.log(myInstanceof(Object, Function));
+        console.log(myInstanceof(Function, Object));
+    </script>
+</body>
+
+</html>

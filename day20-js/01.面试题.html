@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = {
+            n: 1,
+            //x:{}
+        }
+        console.log(a.x);
+        var b = a;
+        /* 
+            点操作符优先级比等号操作符优先级高所以先执行了左边的 这个时候的a已经扩展了一个叫x的空key
+            后来等号右边的赋值相当于给新的a 这个时候a已经改变了
+        */
+        a.x = a = {
+            n: 2
+        };
+        console.log(a.n, b.n) //2 1
+        console.log(a.x, b.x) //undefind object：2
+    </script>
+</body>
+
+</html>

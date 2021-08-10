@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //判断一个数是不是素数
+        /*         function add(n) {
+                    if (n === 0 || n === 1) {
+                        return false;
+                    }
+                    if (n === 2) {
+                        return true;
+                    }
+                    //遍历n之前的所有数
+                    for (var i = 3; i < n; i++) {
+                        if (n % i === 0) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+                var re = add(11);
+                console.log(re); */
+        //打印出3-n之间所有的素数
+
+        function add(n) {
+            var sum = "";
+            bdd: for (var i = 3; i < n; i++) {
+                for (var j = 2; j < i; j++) {
+                    if (i % j === 0) {
+                        continue bdd;
+                    }
+                }
+                sum += i + "  "
+            }
+
+            return sum;
+        }
+        var re = add(30);
+        console.log(re);
+
+
+    </script>
+</body>
+
+</html>

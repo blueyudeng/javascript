@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+                  给定一个字符串如："abaasdffggghhjjkkgfddsssss3444343"
+                  找出以上字符串中出现次数最多的字符和出现的次数
+      
+                  遍历字符串 可以使用对象，用键值对的方式保存每一个字符出现的次数
+              */
+        var str = "abaasdffggghhjjkkgfddsssss3444343";
+
+        //先把字符串转为数组 再遍历数组
+        var obj = str.split("").reduce(function (p, c) {
+            /* 
+                首先判断一个进来的元素在对象p里面存不存在
+                因为p一开始是个空对象 所以肯定不存在 不存在就给元素c添加到对象p里面并给赋值(计数)为1
+                后面循环的时候如果p对象里面存在c就赋值(计数)+1
+             */
+
+            p[c] ? p[c]++ : p[c] = 1;
+            return p
+        }, {})
+        console.log(obj);
+
+        //首先定义两个变量 一个存放出现次数最多的key 一个存放出现的次数
+        var startValue = 0;
+        var maxVlue = "";
+        //遍历对象obj
+        for (var key in obj) {
+            //当对象的key的值大于初始存放变量的元素时就把值赋值给他 循环完成他就是最大的值了  
+            if (obj[key] > startValue) {
+                startValue = obj[key];
+
+                maxVlue = key;
+            }
+        }
+        console.log(maxVlue);
+        console.log(startValue);
+
+    </script>
+</body>
+
+</html>

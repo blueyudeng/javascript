@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            label声明：
+                    -声明语句一般是配合break和continue使用的
+                    -可以给某个for循环设置一个标签名，然后再用break和continue书写这个标签名，则代表退出当前标签所在的循环
+                    -如果没有给break和continue书写标签名则退出离他们最近的一个循环
+        
+        */
+
+        for (var i = 0; i < 5; i++) {
+            for2: for (var j = 0; j < 4; j++) {
+                if (j === 2) {
+                    // break for2;
+                    continue for2;
+                }
+                console.log(i, j);
+            }
+
+        }
+    </script>
+</body>
+
+</html>

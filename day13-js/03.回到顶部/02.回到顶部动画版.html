@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        #box {
+            width: 200px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            background-color: cadetblue;
+            color: #fff;
+
+            position: fixed;
+            right: 0;
+            bottom: 0;
+
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">回到顶部</div>
+    <script>
+        var oBox = document.getElementById('box');
+        //给滚动条绑定滚动条事件 监听滚动条的位置
+        window.onscroll = function () {
+            //只要滚动条发生变化 则获取最新的滚动条位置信息
+            var winScroll = window.pageYOffset;
+            //判断滚动条的位置
+            if (winScroll > 300) {
+                oBox.style.display = "block"
+            } else {
+                oBox.style.display = "none"
+            }
+        }
+
+        var timer = null;
+        //回到顶部按钮的点击事件
+        oBox.onclick = function () {
+            //每次点击之后清楚掉上一次的计时器 以防会叠加
+            clearInterval(timer);
+            //获取当前的滚动条位置
+            var nowScroll = window.pageYOffset;
+            //让滚动条的值以动画的样子匀速递减
+            timer = setInterval(function () {
+                nowScroll -= 20; //让代表当前滚动条位置的变量递减
+
+                //临界值判断
+                if (nowScroll <= 0) {
+                    nowScroll = 0; //让值归零
+                    clearInterval(timer); //清掉动画
+                }
+                //每次递减完成要赋值
+                window.scrollTo(0, nowScroll);
+            }, 1)
+        }
+    </script>
+</body>
+
+</html>

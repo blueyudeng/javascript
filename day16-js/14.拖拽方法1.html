@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById('box')
+
+        oBox.onmousedown = function (e) {
+            //因为鼠标相对元素的位置是不可变的，所以首先获取鼠标到box边缘的距离
+            var mouseToBox = {
+                left: e.offsetX,
+                top: e.offsetY
+            }
+
+            //在按下以后才能绑定移动事件
+            document.onmousemove = function (e) {
+                //移动以后元素的定位就是：当前移动后的鼠标到视口的距离 减去 刚才保存的鼠标到目标元素的距离
+                var oBoxLocation = {
+                    left: e.clientX - mouseToBox.left,
+                    top: e.clientY - mouseToBox.top
+                }
+
+                var winWh = {
+                    width: document.documentElement.clientWidth,
+                    height: document.documentElement.clientHeight
+                }
+
+                if (oBoxLocation.left >= winWh.width - oBox.offsetWidth) {
+                    oBoxLocation.left = winWh.width - oBox.offsetWidth
+                } else if (oBoxLocation.left < 0) {
+                    oBoxLocation.left = 0
+                }
+
+
+                if (oBoxLocation.top >= winWh.height - oBox.offsetHeight) {
+                    oBoxLocation.top = winWh.height - oBox.offsetHeight
+                } else if (oBoxLocation.top < 0) {
+                    oBoxLocation.top = 0
+                }
+
+                oBox.style.left = oBoxLocation.left + "px"
+                oBox.style.top = oBoxLocation.top + "px"
+            }
+
+
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null
+            }
+        }
+    </script>
+</body>
+
+</html>

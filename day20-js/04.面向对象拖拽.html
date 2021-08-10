@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        #box1 {
+            background-color: red;
+        }
+
+        #box2 {
+            background-color: greenyellow;
+        }
+
+        #box3 {
+            background-color: hotpink;
+        }
+
+        #box4 {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+    <div class="box" id="box4"></div>
+    <script>
+        function Drag(id) {
+            this.oBox = document.getElementById(id)
+            //这里的this指向实例化对象
+            var _this = this
+            //给oBox绑定按下事件
+            this.oBox.onmousedown = function (e) {
+                //down是在原型对象上扩展的方法  直接调用是找不到这个方法的 要在原型对象上查找
+                //实例化对象通过__proto__找到了实例化函数的原型对象上的prototpye 这样就可以调用了
+                _this.down(e)//只有事件函数才有e  这里是实参
+            }
+        }
+
+        //因为按下的代码是共享的 所以可以封装一个方法放在原型对象上
+        //这里的e是形参
+        Drag.prototype.down = function (e) {
+            //这里的this指向实例化对象
+            var _this = this;
+            //获取鼠标到元素边缘的值
+            //这里要用this是因为 给实例化对象创建的属性被称为公有属性 其他只要能访问到实例化对象的 都能访问到这个属性
+            this.mouseToBox = {
+                left: e.offsetX,
+                top: e.offsetY
+            }
+            console.log(this.mouseToBox);
+
+            //给document绑定鼠标移动事件
+            document.onmousemove = function (e) {
+                //move是在原型对象上扩展的方法  直接调用是找不到这个方法的 要在原型对象上查找
+                //实例化对象通过__proto__找到了实例化函数的原型对象上的prototpye 这样就可以调用了
+                _this.move(e)
+            }
+
+            //给document绑定鼠标松开事件
+            document.onmouseup = function () {
+                //up是在原型对象上扩展的方法  直接调用是找不到这个方法的 要在原型对象上查找
+                //实例化对象通过__proto__找到了实例化函数的原型对象上的prototpye 这样就可以调用了
+                _this.up()
+            }
+        }
+
+        Drag.prototype.move = function (e) {
+            var oBoxLocation = {
+                left: e.clientX - this.mouseToBox.left,//这里的this是访问实例化对象上的属性
+                top: e.clientY - this.mouseToBox.top
+            }
+
+            //赋值
+            this.oBox.style.left = oBoxLocation.left + "px"
+            this.oBox.style.top = oBoxLocation.top + "px"
+        }
+
+        Drag.prototype.up = function () {
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+        new Drag("box1")
+        new Drag("box2")
+        new Drag("box3")
+        new Drag("box4")
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            浅拷贝：
+                -复制一个对象
+         */
+
+        var o = {
+            name: "laowang",
+            age: 18,
+            sex: "男",
+            you: {
+                you1: "yu",
+                you2: "lei"
+            }
+        }
+        //这个不是复制一个对象，而是给对象重新起了一个名字
+        var o3 = o;
+        o3.holle = "1231"
+        console.log(o);
+        console.log(o3);
+        /*       var o = {
+                  n: 1
+              }
+              var o1 = o;
+              console.log(o1);
+   */
+        var o2 = {}
+        //遍历o把o的属性依次设值给o2
+        for (var key in o) {
+            o2[key] = o[key]
+        }
+        o2.stem = "123"
+        console.log(o2);
+        console.log(o);
+        //比较是地址的比较，所以内层的对象依然是地址赋值，不是拷贝
+        console.log(o2.name === o.name);
+
+    </script>
+</body>
+
+</html>

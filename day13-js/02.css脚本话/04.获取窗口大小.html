@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 10000px;
+            height: 20000px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /* 
+            获取窗口的高度和宽度：
+                -在DOM中，认定根元素的clientWidth和clientHeight属性代表窗口的宽高
+                 - 可以直接使用 document.documentElement.clientWidth获取窗口的宽度
+                - 可以直接使用 document.documentElement.clientHeight获取窗口的高度
+
+                
+            获取文档的高度
+                - 在DOM中，认定根元素的offsetHeith属性代表文档的高度
+                - 可以直接使用 document.documentElement.offsetHeight获取文档高度
+                - 无论文档宽度多少，获取都是和窗口宽度一样，因为横向不建议出现滚动条
+        
+        */
+        window.onresize = function () {
+            console.log("width", document.documentElement.clientWidth);
+            console.log("height", document.documentElement.clientHeight);
+
+            console.log("文档高", document.documentElement.offsetHeight);
+        }
+
+
+
+    </script>
+</body>
+
+</html>

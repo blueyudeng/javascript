@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById('box')
+        //mousedown 鼠标按下事件
+        oBox.onmousedown = function () {
+            console.log("mousedown", "鼠标按下");
+            oBox.style.backgroundColor = "green"
+        }
+        //mouseup 鼠标抬起事件
+        oBox.onmouseup = function () {
+            console.log("mouseup", "鼠标按抬起");
+            oBox.style.backgroundColor = "red"
+        }
+    </script>
+</body>
+
+</html>

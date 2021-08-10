@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            公有属性和公有方法：
+                -给实例化对象创建的属性和方法被称为公有属性和公有方法
+            私有属性和私有方法：
+                -声明在构造函数里的属性和方法被称作为私有属性和私有方法
+            -静态方法和静态属性：
+                -   把设置在构造函数上的属性和方法称作为静态属性和静态方法
+            -特权方法：
+                -直接设置给实例化对象的方法被称作为特权方法
+        
+        */
+
+        function Car(color, speed, size) {
+            //this指向实例化对象 给实例化对象创建的属性和方法被称为公有属性和公有方法
+            this.color = color
+
+            //私有属性
+            var num = 0
+
+            // 私有方法
+            function fn() {
+
+            }
+            //特权方法 直接给实例化对象设置的方法
+            this.win = function () {
+
+            }
+        }
+        //公有方法
+        Car.prototype.add = function () {
+
+        }
+        // 直接设置给实例化函数 
+        //静态属性
+        Car.name = "张三"
+        //静态方法
+        Car.o = function () {
+
+        }
+        var car1 = new Car("red", 188, 18);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function add(a, b) {
+            if (a <= 1 || b > 36) {
+                throw new Error("进制错误")
+            }
+            var sum = "";
+            //给一个对照标 让数组能对照着下标依次取出
+            var dzb = "0123456789abcdefghijklmnopqrstuvwxyz"
+            var bdd = [];
+            while (a > 0) {
+                var cdd = a % b
+                bdd.unshift(dzb[cdd]);
+                a = parseInt(a / b);
+            }
+            console.log(bdd);
+            while (bdd.length > 0) {
+                sum += bdd.shift();
+            }
+            return sum;
+        }
+        var re = add(255, 36);
+        console.log(re);
+
+
+    </script>
+</body>
+
+</html>

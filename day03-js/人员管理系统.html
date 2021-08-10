@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt"><br>
+    <button id="btn">点击增加人员</button>
+    <p id="num">
+        余磊
+    </p>
+    <script>
+        var oIpt = document.getElementById("ipt");
+        var oBtn = document.getElementById("btn");
+        var oNum = document.getElementById("num");
+        //绑定点击事件
+        oBtn.onclick = function () {
+            //获取输入框的值赋值给变量
+            var oIptValue = oIpt.value;
+            // 内容拼接 原来元素的值=原来元素的值+输入的值
+            oNum.textContent += "、" + oIptValue;
+        }
+    </script>
+</body>
+
+</html>

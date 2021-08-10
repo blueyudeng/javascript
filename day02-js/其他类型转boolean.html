@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //number转boolean除了0和NaN是false 其他都是true
+        console.log(Boolean(0));//false
+        console.log(Boolean(1));//true
+        console.log(Boolean(-1));//true
+        console.log(Boolean(11));//true
+        console.log(Boolean(Infinity));//true
+        console.log(Boolean(NaN));//false
+
+
+        //string转boolean 除了空的是false其他都是true
+        console.log(Boolean("ads"));//true
+        console.log(Boolean("asd123"));//true
+        console.log(Boolean(""));//false
+        console.log(Boolean("1"));//true
+
+        //null和undefined转boolean都为false
+        console.log(Boolean(null));//false
+        console.log(Boolean(undefined));//false
+
+        // 对象类型都是truse
+        console.log(Boolean([1]));//true
+        console.log(Boolean([]));//true
+        console.log(Boolean([1, 1]));//true
+        console.log(Boolean({}));//true
+        console.log(Boolean(function () { }));//true
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            new做了什么？
+                -返回一个对象
+                -让构造函数的this全部指向new返回的对象
+                -让new返回的对象的原型链能够找到构造函数的原型对象
+                -判断构造函数的返回值，如果返回的时基本类型值，则对实例化对象没有影响，如果是对象类型，则直接替换实例化对象
+        */
+
+        function Person(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+
+            // return 1;
+            // return [];
+        }
+        Person.prototype.eat = function () {
+            console.log("螺蛳粉");
+        }
+        function myNew(constr) {
+            // 返回一个对象
+            var o = {}
+            //让构造函数的this全部指向new返回的对象
+            var re = constr.apply(o, Array.from(arguments).slice(1))
+            //让new返回的对象的原型链能够找到构造函数的原型对象
+            o.__porto__ = constr.prototype;
+            //判断构造函数的返回值
+            // 判断构造函数的返回值是否为对象 是就直接返回这个对象 
+            if (typeof re === "object" && re !== null || typeof re === "function") {
+                return re;
+            }
+            return o;
+        }
+
+        var p = myNew(Person, "zhangsan", 18, "nan ")
+        console.log(p);
+    </script>
+
+</body>
+
+</html>

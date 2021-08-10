@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var o5 = {
+            n: 4
+        }
+        var o4 = o5;
+        //这里是吧o5的地址复制给了obj obj和o5有相同的地址
+        function fn(obj) {
+            //但是这里相当于obj又创建了一个新的对象 有了新的地址 所以obj和o5就没关系了
+            obj = {
+                n: 5
+            }
+        }
+        fn(o5)
+        console.log(o5.n, o4.n, o5 === o4);//4 4 true 
+
+        var o3 = {
+            m: 4
+        }
+        var o2 = o3;
+        //这里是吧o3的地址复制给了ect ect和o3有相同的地址
+        function add(ect) {
+            //这里ect直接改变了m的值 o3 o4和ect都有相同的地址 所以他们m的值也改变了
+            ect.m = 3
+        }
+        add(o3);
+        console.log(o3.m, o2.m, o3 === o2);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1000px;
+            height: 500px;
+            border: 1px solid #000;
+            margin: 10px auto;
+            position: relative;
+        }
+
+        .con {
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            position: absolute;
+            left: 100px;
+            top: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="con"></div>
+    </div>
+    <script>
+        var oBox = document.querySelector('.box');
+        var oCon = document.querySelector('.con');
+        //初始化 左和上的距离
+        var oLeft = 100;
+        var oTop = 120;
+        //设值开关
+        var flagX = true;
+        var flagY = true;
+
+        //计时器
+        setInterval(function () {
+            //做判断 如果为true
+            if (flagX) {
+                //让左边距一直加10
+                oLeft += 10;
+                //设置临界值
+                if (oLeft > oBox.clientWidth - oCon.offsetWidth) {
+                    oLeft = oBox.clientWidth - oCon.offsetWidth
+                    //开关反转
+                    flagX = !flagX
+                }
+                //做判断 如果为false
+            } else {
+                //让左边距一直减10
+                oLeft -= 10;
+                //设值临界值
+                if (oLeft < 0) {
+                    oLeft = 0
+                    //开关反转
+                    flagX = !flagX
+                }
+            }
+
+
+            if (flagY) {
+                oTop += 10;
+                if (oTop > oBox.clientHeight - oCon.offsetWidth) {
+                    oTop = oBox.clientHeight - oCon.offsetWidth
+                    flagY = !flagY
+                }
+            } else {
+                oTop -= 10;
+                if (oTop < 0) {
+                    oTop = 0
+                    flagY = !flagY
+                }
+            }
+            //赋值
+            oCon.style.left = oLeft + "px";
+            oCon.style.top = oTop + "px";
+        }, 20);
+
+    </script>
+
+
+</body>
+
+</html>

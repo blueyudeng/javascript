@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 50%;
+            position: relative;
+            left: 100px;
+            top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        /*  想要让小球曲线运动，我们选取正弦曲线
+             小球的位置是由x轴y轴决定的 在正弦函数中y=sinX(deg) */
+        var boxQiu = document.getElementById('box');
+        //首先定义一个为0的角度
+        var deg = 0;
+        //设定一个计时器，每隔一段时间让角度改变一次
+        setInterval(function () {
+            //让角度累加
+            deg++;
+            //y=sin(x) 因为sin的值是在-1到1之间变化所以要放大sin值（默认是在300的位置上下位移）
+            var y = 300 * Math.sin(deg * 2 * Math.PI / 360) + 300;
+            console.log(y);
+
+            boxQiu.style.left = deg + "px";
+            boxQiu.style.top = y + "px";
+        }, 10);
+
+
+    </script>
+</body>
+
+</html>

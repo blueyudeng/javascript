@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            this:
+                - js的作用域是静态的,但是函数的调用是动态的，可以在不同的环境中运行，在函数中定义了this（指针型的变量），代表当前函数的执行环境（函数的调用者）
+                - this永远指向其所在函数的调用者，如果没有则指向全局对象window
+                - this和函数的调用息息相关，函数的调用方式不同，this的指向不同
+                    - 函数默认调用  this指向window
+                    - 函数上下文对象调用  this指向上下文对象
+                
+        
+        
+        */
+        function fn() {
+            console.log(this);
+        }
+
+        //函数的默认调用  this指向window
+        fn(); //window
+        window.fn(); //window
+
+
+        var o = {
+            name: "laowang",
+            study: fn
+        }
+        //上下文对象调用函数  this指向上下文对象
+        o.study(); //o
+
+
+        //隐式丢失
+        var fn2 = o.study;
+        fn2(); //window
+
+
+        //test
+        var o2 = {
+            study: function () {
+                console.log(this); //o2
+
+                function fn() {
+                    console.log(this); //window
+                }
+                fn();
+            }
+        }
+        o2.study();
+
+
+        //事件函数中的this指向当前绑定事件的元素
+        document.onclick = function () {
+            console.log(this);
+
+            function fn() {
+                console.log(this); //window
+            }
+            fn();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  
+       []:中括号中可以书写一些字符，里边的字符属于或的关系，挑选一个匹配
+           [0-9]:数字
+           [a-z]:小写字母
+           [A-Z]:大写字母
+           [^A-Z]:不匹配大写字母
+           [\u4E00-\u9FA5]:匹配所有的汉字
+           [0-9A-Za-z_]:匹配字母数字下划线
+
+       量词：
+           +：一个或多个
+           ?:一个或者0个
+           *:0个或者多个
+           {3,7}:可以匹配 3-7个
+           {3,}:可以匹配3个及3个以上
+           {3}:匹配3个
+
+       转义字符
+           \d:数字
+           \D:非数字
+           \s:空白字符
+           \S:非空白字符
+           \w:匹配字母数字下划线
+           \b:匹配单词边界
+   
+   */
+
+        var reg1 = /[a-z]+/g;//一个或多个小写字母
+        var str1 = "asdahhh123j11j23jhjkk";//["asdahhh", "j", "j", "jhjkk"]
+        var re1 = str1.match(reg1);
+        console.log(re1);
+
+
+        var reg2 = /[3-9A-Z]+/g;//数字3-9和大写字母A-Z
+        var str2 = "h1el22Lo 3wo44r1ld";//["L", "3", "44"]
+        var re2 = str2.match(reg2);
+        console.log(re2);
+
+        var reg3 = /[海真我]/gi;//汉字
+        var str3 = "海静宝宝，你真棒棒棒，我喜欢你，你是是不是喜欢我";
+        var re3 = str3.replace(reg3, "*");//*静宝宝，你*棒棒棒，*喜欢你，你是是不是喜欢*
+        console.log(re3);
+
+        var reg4 = /\s+/gi;//一个或多个空白字符
+        var str4 = "  21 123 4 f f2r 23r 2   ";
+        var re4 = str4.replace(reg4, "");//211234ff2r23r2
+        console.log(re4);
+
+        //筛选出两个div标签
+        var str5 = "div p div h3 divouter  ppdiv";
+        var reg5 = /\bdiv\b/gi;
+        var re5 = str5.match(reg5);
+        console.log(re5);
+    </script>
+</body>
+
+</html>

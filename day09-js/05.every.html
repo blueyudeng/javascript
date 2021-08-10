@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var person = [{
+            name: "lily",
+            sex: "nan",
+            age: 18
+        }, {
+            name: "xiaoming",
+            sex: "nan",
+            age: 28
+        }, {
+            name: "hanmeimei",
+            sex: "nv",
+            age: 11
+        }, {
+            name: "tom",
+            sex: "nan",
+            age: 48
+        }, {
+            name: "jery",
+            sex: "nan",
+            age: 12
+        }, {
+            name: "moning",
+            sex: "nv",
+            age: 33
+        }, {
+            name: "tony",
+            sex: "nan",
+            age: 17
+        }];
+
+        var re = person.every(function (itme, index, arr) {
+
+            console.log(itme);
+            //判断是否全部大于18 有一个小于18就停止遍历返回false全部都大于等于18就返回true
+            return itme.age >= 18
+
+        })
+        console.log(re);
+    </script>
+</body>
+
+</html>

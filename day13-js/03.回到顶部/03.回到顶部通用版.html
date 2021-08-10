@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        #box {
+            width: 200px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            background-color: cadetblue;
+            color: #fff;
+
+            position: fixed;
+            right: 0;
+            bottom: 0;
+
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">回到顶部</div>
+    <script>
+        var oBox = document.getElementById('box');
+        //给滚动条绑定滚动条事件 监听滚动条的位置
+        window.onscroll = function () {
+            //只要滚动条发生变化 则获取最新的滚动条位置信息
+            var winScroll = window.pageYOffset;
+            //判断滚动条的位置
+            if (winScroll > 300) {
+                oBox.style.display = "block"
+            } else {
+                oBox.style.display = "none"
+            }
+        }
+
+        var timer = null;
+        //回到顶部按钮的点击事件
+        oBox.onclick = function () {
+            //实时获取滚动条的位置
+            var startLocation = window.pageYOffset;
+            //给滚动条结束的位置定一个变量
+            var endLocation = 0;
+            //设置滚动条实时走的步数 一开始为0
+            var startStep = 0;
+            //设置滚动条总共需要走多少部步
+            var endStep = 20;
+            //获取每一步应该走的距离
+            var everyStep = (endLocation - startLocation) / endStep;
+
+            timer = setInterval(function () {
+                //让起始位置的变量开始累加每一步的值
+                startLocation += everyStep;
+                //起始步数累加 用来判断临界值
+                startStep++;
+                //如果走的步数到达了设置的总步数则停止 并清除掉计时器
+                if (startStep >= endStep) {
+                    clearInterval(timer);
+                }
+                //把改变后的起始位置的值 赋值给系统滚动条
+                window.scrollTo(0, startLocation);
+            }, 10)
+
+        }
+    </script>
+</body>
+
+</html>

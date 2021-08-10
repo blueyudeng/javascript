@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">test</button>
+    <button id="cancel">cancel</button>
+    <script>
+        /* 
+            事件模型-基本事件模型
+        */
+
+        var oBtn = document.getElementById('btn');
+        var oCancel = document.getElementById('cancel');
+
+        //同一个事件只能绑定一次，如果绑定多次则覆盖
+        /*       oBtn.onclick = function () {
+                  console.log("btn1");
+              }
+              oBtn.onclick = function () {
+                  console.log("btn2");
+              }
+              oBtn.onclick = function () {
+                  console.log("btn3");
+              }
+              oBtn.onclick = function () {
+                  console.log("btn4");
+              } */
+
+
+        //只能冒泡
+        oBtn.onclick = function () {
+            console.log("btn");
+        }
+
+        oCancel.onclick = function () {
+            console.log("Cancel");
+            //注销事件需要把事件属性设置为null
+            oBtn.onclick = null;
+        }
+
+        document.body.onclick = function () {
+            console.log("body");
+        }
+
+        document.onclick = function () {
+            console.log("document");
+        }
+    </script>
+</body>
+
+</html>

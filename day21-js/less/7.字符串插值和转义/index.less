@@ -1,0 +1,18 @@
+@baseUrl: "http://docs.lipeihua.vip/images/";
+@size: 30;
+
+#box1 {
+    //把变量和其他字符串拼接的时候，需要使用大括号把变量括起来，被称作字符串插值
+    background: url("@{baseUrl}01.jpg");
+
+    //在拼接的时候可能需要转变为字符串 但是真正属性值不能是字符串 所以需要转义~
+    font-size:~"@{size}px";
+}
+
+#box2 {
+    background: url("@{baseUrl}02.jpg");
+}
+
+#box3 {
+    background: url("@{baseUrl}03.jpg");
+}

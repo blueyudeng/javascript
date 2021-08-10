@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+            padding: 20px;
+            border: 1px solid #000;
+        }
+
+        #con {
+            width: 600px;
+            height: 600px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="con"></div>
+    </div>
+    <script>
+        var oBox = document.getElementById('box')
+        /* 
+            scrollWidth 有滚动条元素的完全宽度(元素内 所有内容的总宽度)
+            scrollHeight 有滚动条元素的完全高度(元素内 所有内容的总高度)
+        */
+        console.log(oBox.scrollWidth);//620
+        console.log(oBox.scrollHeight);//640
+
+    </script>
+</body>
+
+</html>

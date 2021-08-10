@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        /*
+            Selector API:
+                -html5规定的新方法，可以通过css选择器的方式选择元素
+        */
+
+        //querySelector("选择器")：单个元素，就算选择器选择多个，仍然选取第一个元素
+        var re1 = document.querySelector("ul li");
+        console.log(re1);
+
+        var re2 = document.querySelector("#box li");
+        console.log(re2);
+
+        var re3 = document.querySelector("#box li:nth-child(1)");
+        console.log(re3);
+
+        //querySelectorAll("属性名"):多个元素，就算选择器选择一个，是一个NodeList集合
+        var res1 = document.querySelectorAll("ul li");
+        console.log(res1);
+
+        var res2 = document.querySelectorAll("#box");
+        console.log(res2);
+    </script>
+</body>
+
+</html>

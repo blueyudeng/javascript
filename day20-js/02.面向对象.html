@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            方法1：字面量方法创建对象：
+                缺点：代码冗余
+        */
+        /*         var car1 = {};
+                car1.color = "yellow";
+                car1.speed = 180;
+                car1.size = 2.5;
+                car1.run = function () {
+                    console.log("走你~");
+                }
+        
+                var car2 = {};
+                car2.color = "yellow";
+                car2.speed = 180;
+                car2.size = 2.5;
+                car2.run = function () {
+                    console.log("走你~");
+                } */
+
+        /* 
+            方法2：工厂模式
+            缺点：无法区分对象的构造器
+        */
+        /*       function car(color, speed, size) {
+                     var o = {}
+                     o.color = color;
+                     o.speed = speed;
+                     o.size = size;
+                     o.run = function () {
+                         console.log("芜湖 起飞");
+                     }
+                     return o;
+                 }
+                 var car1 = car("yollew", "190", "290")
+                 var car2 = car("red", "200", "199")
+                 console.log(car1.constructor);
+                 console.log(car2.constructor);
+                 console.log(car1.run===car2.run); */
+
+        /* 
+               构造函数的方法：
+                   -当一个函数被实例化调用的时候，我们称这个函数是构造函数
+                   -构造函数一般要求i首字母大写
+                   -构造函数被实例化调用之后，会返回一个实例化对象
+                   -构造函数中的this指向实例化对象
+       
+               缺点：无法共享一个方法或属性
+        */
+
+
+        function Car(color, speed, size) {
+            this.color = color;
+            this.speed = speed;
+            this.size = size;
+            this.fn = function () {
+                console.log("起飞");
+            }
+        }
+        var car1 = new Car("red", 200, 190)
+        var car2 = new Car("green", 100, 290)
+        console.log(car1);
+        console.log(car2);
+        console.log(car1.constructor);
+        console.log(car2.constructor);
+        console.log(car2.constructor === car1.constructor);
+        console.log(car1.fn === car2.fn);
+    </script>
+</body>
+
+</html>

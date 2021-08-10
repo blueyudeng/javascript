@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            加法操作符：
+                当两个都是number则直接计算
+                当为布尔值时则转为number计算
+                当有一个或者两个string类型则直接拼接
+                出现两个对象类型时也是直接拼接
+                其他类型都是转number计算
+        
+        */
+        console.log(1 + 1);//2
+        console.log(1 + "1");//11
+        console.log("1" + "1");//11
+        console.log("1a" + 1);//1a1
+        console.log("1a" + "1a");//1a1a
+        console.log(true + false);//1
+        console.log(true + 1);//2
+        console.log(true + Infinity);//infinity
+        console.log(true + null);//1
+        console.log(true + undefined);//NaN
+        console.log(Infinity + Infinity);//infinity
+        console.log([1] + 1);//11
+        console.log([1] + [1]);//11
+        console.log([1, 1] + 1);//1,11
+
+        //拼接练习
+        function zwjs(name, age, sex) {
+            alert("大家好我的名字是：" + name + "," + "年龄是：" + age + "," + "性别是：" + sex)
+        }
+        zwjs("余磊", 21, "男")
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点击</button>
+    <script>
+        /*
+            DOM0绑定事件：
+                -元素.on+事件名=fn(给元素对象的事件属性赋值一个回调函数)
+                -当元素的事件触发的时候，会执行fn函数
+                -其实调用的时候相当于 元素.on+事件名()
+        */
+
+        var oBtn = document.getElementById("btn");
+        function fn() {
+            console.log(1);
+        }
+        oBtn.onclick = fn;
+    </script>
+</body>
+
+</html>

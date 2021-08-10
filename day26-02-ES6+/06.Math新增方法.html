@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Math的扩展
+        console.log(Math.trunc(3.14));//3 去掉小数保留整数
+        console.log(Math.sign(1));//1  //Math.sign() 判断数字是正数、负数、0、NaN 整数返回1 负数返回-1
+        console.log(Math.sign(-1));//-1
+        console.log(Math.sign(0));//0
+        console.log(Math.sign(NaN));//NaN
+        console.log(Math.sqrt(4)); //2 平方根
+        console.log(Math.cbrt(27)); //3 立方根
+        console.log(Math.hypot(3, 4)); //5  平方和的平方根
+
+
+        //  Number扩展
+        console.log(Number.isFinite(Infinity));//false isFinite判断是否是有限大的数
+        console.log(Number.isNaN("abc"));//false Number.isNaN(i) : 判断是否是NaN 直接判断不进行类型转换
+        console.log(Number.isInteger(3.14));//false 判断是否是整数
+    </script>
+</body>
+
+</html>

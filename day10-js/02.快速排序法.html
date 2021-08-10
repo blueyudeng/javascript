@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+              快速排序
+                - 选取一个基准值，定义两个数组，一个放在基准值左侧，一个放在基准值右侧
+                - 遍历数组和基准值比较，比基准值大的放在右侧数组中  比基准值小的放在左侧数组中
+                - 左右侧数组重新递归调用以上方法，达成排序
+                - 合并左中右完成排序
+
+        */
+        function arr(ks) {
+            //每次刚进入快排要进行判断，如果当前数组长度小于等于1，则不再进行快排直接返回值
+            if (ks.length <= 1) {
+                return ks;
+            }
+            //首先拿出一个值作为基准
+            var bdd = ks.shift();
+            //定义俩个数组
+            var left = [];
+            var right = [];
+            //循环当前数组
+            ks.forEach(function (item) {
+                //如果比拿出的基准大就放入右边的数组里 反之则放到左边的数组里
+                bdd > item ? left.push(item) : right.push(item)
+            })
+            // console.log(left, bdd, right);
+            //把左中右数组合并
+            //合并的时候left和right分别都要再次选基准排序 可以使用递归
+            var result = arr(left).concat(bdd, arr(right));
+            // console.log(rex);
+            return result;
+        }
+        var ksPx = [4, 2, 4, 3, 6, 4, 1, 7, 8, 5, 6, 8, 0];
+        var re = arr(ksPx);
+        console.log(re);
+
+    </script>
+</body>
+
+</html>

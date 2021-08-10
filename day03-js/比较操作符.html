@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*         比较操作符：
+                - > >= < <=  ==  === !=
+                - 比较操作符都返回布尔值
+                - 在比较的过程中可能出现隐式转换 */
+
+        //如果两个都是数字直接按数字比较
+        console.log(1 > 3);//false
+        console.log(1 < 3);//true
+        // 如果有一个数字则都按照数字比较
+        console.log(1 > "3");//false
+        console.log("1" > "3");//false
+        console.log("a" > 3);//false
+        //如果两个都是字符串，则按照字符串的规则比较（按位比较,并且参照ascII码的值比较 数字<大写字母<小写字母）
+        console.log("a" > "A");//true
+        console.log("abc" > "ab");//true
+        //布尔值会转换为数字之后按照规则比较
+        console.log(true > 3);//false
+        console.log(false > 3);//false
+        //undefined和谁比较都是false
+        console.log(undefined > 3);//false
+        console.log(undefined < 3);//false
+        console.log(undefined == 3);//false
+        //null也要转为number按照数字比较
+        console.log(null > 3);//false
+        console.log(null < 3);//true
+        console.log(null == 3);//false
+        //如果两个都是对象 则转为number比较
+        console.log({} > {});//false
+        console.log({} < {});//fasle
+        // 对象的相等比较比较的都是地址值，和类型转换无关
+        console.log({} == {});//false
+        console.log([4] > 3);//true
+        //如果有一个是对象 另一个是字符串则按照字符串的规则比较
+        console.log([4] > "abc");//false
+        console.log([4] < "abc");//true
+
+    </script>
+</body>
+
+</html>

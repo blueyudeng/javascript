@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            overflow: hidden;
+        }
+
+        #rbox {
+            width: 50px;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: silver;
+        }
+
+        #gbox {
+            width: 50px;
+            height: 60px;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <div id="rbox">
+        <div id="gbox"></div>
+    </div>
+    <script>
+        var oBox = document.getElementById('box')
+        var oGbox = document.getElementById('gbox')
+        var oRbox = document.getElementById('rbox')
+        for (var i = 0; i < 300; i++) {
+            oBox.innerHTML += i + "</br>"
+        }
+
+
+        var oSc = document.documentElement.clientHeight;
+        var oHkHeight = oSc * (oRbox.clientHeight / oBox.offsetHeight);
+        oGbox.style.height = oHkHeight + "px";
+
+
+        oGbox.onmousedown = function (e) {
+            //鼠标点击时距离目标元素oGbox顶部的距离
+            var oMbtop = e.offsetY;
+
+            document.onmousemove = function (e) {
+                e.preventDefault();
+                // 鼠标移动数距离浏览器窗口顶部的距离
+                var oMdtop = e.clientY;
+                // 元素移动了的距离
+                var oBoxMove = oMdtop - oMbtop;
+                if (oBoxMove >= oRbox.clientHeight - oGbox.offsetHeight) {
+                    oBoxMove = oRbox.clientHeight - oGbox.offsetHeight
+                } else if (oBoxMove <= 0) {
+                    oBoxMove = 0
+                }
+
+                oGbox.style.top = oBoxMove + "px";
+
+
+                /* 
+                      比例计算：
+                    - 滑块走的距离/滑块能走的距离 = con走的距离/con能走的距离
+                    - con走的距离 = con能走的距离/滑块能走的距离  * 滑块走的距离
+                */
+
+                // box内容能走的距离=box的高度减去浏览器窗口的高度
+                var oBoxGo = oBox.offsetHeight - document.documentElement.clientHeight;
+                //滑块能走的距离=滚动条的高度减去滑块本身的高度
+                var oRoxGo = oRbox.clientHeight - oGbox.offsetHeight;
+                var oText = oBoxGo / oRoxGo;
+                var oConLoca = oBoxMove * oText;
+                oBox.style.transform = "translateY(-" + oConLoca + "px)"
+            }
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+    </script>
+</body>
+
+</html>

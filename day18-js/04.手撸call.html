@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Function.prototype.MyCall = function (obj) {
+            //判断obj是否为undefind或者NaN 如果是就为window
+            if (obj === undefined || obj === NaN) {
+                obj = window;
+            }
+            //判断obj是否为objec并且是否为function 如果都不是就是基本数据类型
+            if (typeof obj != "object" && typeof obj != "function") {
+                obj = Object(obj)
+            }
+
+            var arg = Array.from(arguments).slice(1);
+            console.log(arg.toString());
+
+            //给obj扩展一个属性  这里的this指向函数的调用者也就是fn 
+            var f = Date.now();
+            console.log(f);
+            obj[f] = this;//这里的this指向函数的调用者也就是fn obj[f]调用了这个函数 
+            //然后obj调用了这个属性 那么这个函数的this指向obj 
+            //所以原来this指向fn 现在就指向obj
+            obj[f]();
+            //eval 可以把字符串当做代码运行  arg.toString()运行结果是1,2
+
+
+            eval('var  re= obj[f](' + arg.toString() + ')')
+            delete obj[f];
+            console.log(re);
+            return re;
+        }
+        var a = {
+            name: "zhangsan"
+        }
+
+        function fn(b, c) {
+            console.log(this);
+            console.log(b + c);
+            return 123
+        }
+        var re = fn.MyCall(a, 1, 2);
+        console.log(re);
+
+        /*     a.f = function () {
+                console.log(this);
+                return 2;
+            };
+    
+            console.log(a.f()); */
+
+
+    </script>
+</body>
+
+</html>

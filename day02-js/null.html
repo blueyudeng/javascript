@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //null类型只有一个值：null
+
+        //1.假设b可用可不用的时候 可以给b赋值null
+        function nu(a, b, c) {
+            console.log(a, c)
+            console.log(b, c)
+        }
+        nu(2, null, 3)
+
+
+        //2.当需要声明一个变量但是暂时不需要给他赋值的时候，这时候就可以给变量赋值个null
+        var d = null;
+
+        // 3.原型链的终点是null
+
+        //4.不需要这个对象了 把他设置成垃圾对象，可以将引用变量设值有null
+        var e = "我是个垃圾"
+        e = null;
+    </script>
+</body>
+
+</html>

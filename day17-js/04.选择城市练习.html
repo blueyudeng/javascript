@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #outer {
+            width: 400px;
+            margin: 20px auto;
+        }
+
+        #con {
+            position: relative;
+        }
+
+        #select {
+            height: 40px;
+            background-color: grey;
+            line-height: 40px;
+        }
+
+        #cityList {
+            overflow: hidden;
+            width: 400px;
+            position: absolute;
+            background-color: red;
+            display: none;
+            flex-wrap: wrap;
+        }
+
+        #cityList li {
+            width: 80px;
+            text-align: center;
+            margin: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="outer">
+        <h2 id="title">深圳</h2>
+        <div id="con">
+            <p id="select">点击我选择城市</p>
+            <ul id="cityList">
+                <li>深圳</li>
+                <li>北京</li>
+                <li>广州</li>
+                <li>上海</li>
+                <li>长沙</li>
+                <li>南昌</li>
+                <li>武汉</li>
+                <li>焦作</li>
+                <li>郑州</li>
+                <li>太原</li>
+                <li>草围</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var oSelect = document.getElementById('select')
+        var oCityList = document.getElementById('cityList')
+        var oTitle = document.getElementById('title')
+        //给document绑定点击事件
+        document.onclick = function (e) {
+            // 事件委托 做目标元素的点击判断
+            if (e.target.id === "select") {
+                oCityList.style.display = "flex"
+                return;
+            }
+
+            //判断点击的是否是元素名为li并且他的父元素的id为cityList的元素
+            if (e.target.nodeName === "LI" && e.target.parentNode.id === "cityList") {
+                console.log(1);
+                oTitle.textContent = e.target.textContent;
+                oCityList.style.display = "none";
+                return;
+            }
+            oCityList.style.display = "none";
+
+        }
+    </script>
+</body>
+
+</html>

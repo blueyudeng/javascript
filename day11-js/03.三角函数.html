@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            sin cos tan接受的值不是一个角度 而是一个弧度
+            弧度2PI=360度
+            1度：2*PI/360弧度
+        */
+        //sin(正弦)：在直角三角形中sin(角度)=这个角的对边/斜边
+        console.log(Math.sin(30 * 2 * Math.PI / 360));
+        //cos(余弦)：在直角三角形中cos(角度)=这个角的邻边/斜边
+        console.log(Math.cos(30 * 2 * Math.PI / 360));
+        //tan(正切)：在直角三角形中tan(角度)=这个角的对边/邻边
+        console.log(Math.tan(30 * 2 * Math.PI / 360));
+    </script>
+</body>
+
+</html>

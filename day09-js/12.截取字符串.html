@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var add = "holle word"
+        //substr(参数1，参数2) 参数1开始截取字符串的下标  参数2截取的长度(如果忽略则默认截取全部)
+        console.log(add.substr(0));
+        console.log(add.substr(1, 4));
+        //substring(参数1，参数2);参数1开始截取字符串的下标 参数2结束截取的下标（不包括结束位置）
+        console.log(add.substring(1, 3));
+        //参数1为负则默认0 
+        console.log(add.substring(1, -1));
+        // slice(参数1，参数2); 参数1开始截取字符串的下标 参数2结束截取的下标（不包括结束位置）
+        console.log(add.slice(1, 3));
+        console.log(add.slice(-1, 3));
+        //为负则倒着数
+        console.log(add.slice(1, -1));
+
+    </script>
+</body>
+
+</html>

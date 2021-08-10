@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        /*
+         在元素的最前边插入节点方法封装
+             - 返回被插入的元素
+     */
+
+
+        /*       function insertChild(parent, newEle) {
+                  //获取父元素的第一个子元素
+                  var newYs = parent.firstElementChild;
+                  //把新元素插入第一个子元素的前面
+                  parent.insertBefore(newEle, newYs)
+                  return newEle;
+              }
+      
+              //使用方法
+              var oBox = document.getElementById('box');
+              var oBtn = document.getElementById('btn');
+              oBtn.onclick = function () {
+                  var newLi = document.createElement("li")
+                  newLi.textContent = "新li"
+      
+                  insertChild(oBox, newLi)
+              } */
+
+
+        // 在某个节点的后边插入元素 方法封装
+
+        /*    function insertAfter(newEle, oldEle) {
+               //获取要插入的元素的下一个兄弟元素
+               var oXd = oldEle.nextElementSibling;
+               //把新元素插入到兄弟元素的前面
+               oXd.parentNode.insertBefore(newEle, oXd);
+               return newEle;
+           }
+   
+           //使用方法
+           var oBtn = document.getElementById('btn');
+           var oLis = document.querySelectorAll('#box li');
+   
+           oBtn.onclick = function () {
+               var newLi = document.createElement("li")
+               newLi.textContent = "新li"
+   
+               insertAfter(newLi, oLis[1])
+           } */
+
+        // 封装函数 传入参数，清空所有子元素节点
+
+        function clearChild(ele) {
+            //判断元素有没有第一个子节点 有就直接删除
+            while (ele.firstElementChild) {
+                ele.firstElementChild.remove();
+            }
+        }
+        var oBtn = document.getElementById('btn');
+        var oBox = document.querySelector('#box');
+        oBtn.onclick = function () {
+            clearChild(oBox);
+        }
+    </script>
+</body>
+
+</html>

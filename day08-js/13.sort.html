@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var arr = [{
+            name: "lily",
+            sex: "nan",
+            age: 18
+        }, {
+            name: "xiaoming",
+            sex: "nan",
+            age: 28
+        }, {
+            name: "hanmeimei",
+            sex: "nv",
+            age: 11
+        }, {
+            name: "tom",
+            sex: "nan",
+            age: 48
+        }, {
+            name: "jery",
+            sex: "nan",
+            age: 12
+        }, {
+            name: "moning",
+            sex: "nv",
+            age: 33
+        }, {
+            name: "tony",
+            sex: "nan",
+            age: 17
+        }]
+
+        arr.sort(function (a, b) {
+            return a.age - b.age;
+        })
+        console.log(arr);
+    </script>
+</body>
+
+</html>

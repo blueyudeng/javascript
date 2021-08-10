@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="box">
+        <li class="show">1</li>
+        <li>2</li>
+        <li class="show">3</li>
+    </ul>
+    <ol class="out">
+        <li>1</li>
+        <li class="show">2</li>
+        <li>3</li>
+    </ol>
+    <script>
+        /* 
+            传统方法获得元素节点
+        */
+        //getElementsByTagName(标签名) 通过标签名获取元素 返回的是一个对象格式 也是一个伪数组
+        var oLis = document.getElementsByTagName("li");
+        console.log(oLis);
+        //因为是一个集合 所以必须通过下标来使用
+        console.log(oLis[1]);
+
+        //getElementById("id名") 通过id获取元素 得到的是节点对象，可以直接使用 因为id是唯一的
+        var oBox = document.getElementById("box");
+        console.log(oBox);
+
+        //获取id为box内部所有的li
+        var oBoxLi = oBox.getElementsByTagName("li");
+        console.log(oBoxLi);
+
+        //getElementsByClassName(类名) 通过class获取元素 得到的是一个对象 是一个复数，使用的是否添加下标
+        var oBoxClass = document.getElementsByClassName("out");
+        console.log(oBoxClass);
+
+
+    </script>
+</body>
+
+</html>

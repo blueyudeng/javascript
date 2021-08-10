@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //原始方法获取
+        var oHtml1 = document.querySelector("html");
+        var oHead1 = document.querySelector("head")
+        var oBody1 = document.querySelector("body")
+        console.log(oHtml1, oHead1, oBody1);
+
+
+        /* 
+            获取html head body标签
+            直接获取也是可以的，但是document对象上提供了三个属性，方便我们获取这三个特殊的元素
+            分别是：document.documentElement  document.head document.body
+         */
+
+        //document对象上的方法
+        var oHtml2 = document.documentElement;
+        var oHead2 = document.head;
+        var oBody2 = document.body;
+        console.log(oHtml2, oHead2, oBody2);
+    </script>
+</body>
+
+</html>

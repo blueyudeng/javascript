@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var add = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        //a有一个初始值，第一次执行函数时返回的是初始值，后面执行时返回的是上一个回调函数的值
+        //a=a+b b=1,2,3,4,5...9
+        var re = add.reduce(function (a, b) {
+            return a + b;
+        }, 0)
+        console.log(re);
+
+    </script>
+</body>
+
+</html>

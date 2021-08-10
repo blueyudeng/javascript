@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">btn</button>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        /* 
+            新旧获取元素方法的对比：
+                -传统方法：
+                    -获取多个元素的集合是HTMLConllection对象
+                    -HTMLConllection对象是动态的 会监听获取的元素的改变，一旦改变则会影响HTMLConllection对象的值
+                -SelectorsAPI
+                    -获取多个元素的集合是NodeList对象
+                    -NodeList对象是静态的，一旦获取之后，无论元素怎么发生变化，都不可能影响NodeList中的值
+        */
+        /*        //传统方法
+               var oBox = document.getElementById('box')
+               var oLis = oBox.getElementsByTagName("li");
+               var oBtn = document.getElementById('btn');
+       
+               //点击按钮添加一个li
+               oBtn.onclick = function () {
+                   //创建一个li
+                   var newLi = document.createElement("li");
+                   //把新创建的li插入到ul中
+                   oBox.appendChild(newLi);
+       
+                   //重新打印oLis
+                   console.log(oLis);
+       
+               } */
+
+        //SelectorsAPI方法
+        var oBox = document.getElementById('box')
+        var oLis = oBox.querySelectorAll("li");
+        var oBtn = document.getElementById('btn');
+
+        //点击按钮添加一个li
+        oBtn.onclick = function () {
+            //创建一个li
+            var newLi = document.createElement("li");
+            //把新创建的li插入到ul中
+            oBox.appendChild(newLi);
+
+            //重新打印oLis
+            console.log(oLis);
+        }
+    </script>
+</body>
+
+</html>

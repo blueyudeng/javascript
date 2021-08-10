@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById('box');
+
+        document.onmousedown = function (e) {
+            //鼠标点下的初始位置
+            var oCsclient = {
+                left: e.clientX,
+                top: e.clientY
+            }
+
+            //鼠标点下时元素的左边距和上边距
+            var oOffset = {
+                left: oBox.offsetLeft,
+                top: oBox.offsetTop
+            }
+            //获取最新的clientX 减去 按下的时候保存的clientX 得到位移的差值，然后再加上初始位置即可得到目前的定位
+            document.onmousemove = function (e) {
+                var oYclient = {
+                    left: e.clientX - oCsclient.left + oOffset.left,
+                    top: e.clientY - oCsclient.top + oOffset.top
+                }
+                //判断临界值
+                //获取视口的宽高
+                var winWH = {
+                    width: document.documentElement.clientWidth,
+                    height: document.documentElement.clientHeight
+                }
+                if (oYclient.left >= winWH.width - oBox.offsetWidth) {
+                    oYclient.left = winWH.width - oBox.offsetWidth
+                } else if (oYclient.left < 0) {
+                    oYclient.left = 0
+                }
+                if (oYclient.top >= winWH.height - oBox.offsetHeight) {
+                    oYclient.top = winWH.height - oBox.offsetHeight
+                } else if (oYclient.top < 0) {
+                    oYclient.top = 0
+                }
+
+                //赋值
+                oBox.style.left = oYclient.left + "px";
+                oBox.style.top = oYclient.top + "px";
+            }
+
+
+            //鼠标抬起事件
+            document.onmouseup = function () {
+                //清除移动事件
+                document.onmousemove = null;
+                //清除自身
+                document.onmouseup = null;
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

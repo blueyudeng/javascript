@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var o1 = {
+            n: 1
+        }
+        var o2 = {
+            m: 2
+        }
+        var o3 = {
+            x: 3
+        }
+
+        var obj = {
+
+        };
+
+        obj[o1] = 1;
+        //因为对象的key都是字符串类型 所以o1转换为字符串为["[Object,object]"]
+        //同上o2也转换为["[Object,object]"]所以覆盖了o1
+        obj[o2] = 2;
+        console.log(obj[o3]);//2
+    </script>
+</body>
+
+</html>

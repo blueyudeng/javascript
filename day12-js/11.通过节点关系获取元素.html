@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <h2>h2</h2>
+        <p>pppp</p>
+        <h2>h2</h2>
+        <h2>h2</h2>
+        <h2>h2</h2>
+    </div>
+    <script>
+        var oBox = document.getElementById("box");
+
+        //children 获取父级元素中所有的子元素
+        var oBoxdr = oBox.children;
+        console.log(oBoxdr);
+
+        //firstElementChild 获取父级元素中的第一个子元素
+        var oBoxFc = oBox.firstElementChild;
+        console.log(oBoxFc);
+
+        //lastElementChild 获取父级元素中的最后一个子元素
+        var oBoxLc = oBox.lastElementChild;
+        console.log(oBoxLc);
+
+        //parentNode获取父级元素
+        var oBoxPn = oBoxdr[1].parentNode;
+        console.log(oBoxPn);
+
+        // nextElementSibling获取这个元素节点的下一个兄弟元素节点
+        var oBoxNs = oBoxFc.nextElementSibling;
+        console.log(oBoxNs);
+
+        //previousElementSibling获取这个元素节点的上一个兄弟元素节点
+        var oBoxPs = oBoxLc.previousElementSibling;
+        console.log(oBoxPs);
+
+    </script>
+</body>
+
+</html>

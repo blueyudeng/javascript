@@ -1,0 +1,50 @@
+//mixin混合：定义一些通用的属性集为一个class
+//无参数混合
+
+//  .center() {
+//   margin: auto;
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+// }
+
+// #o {
+//   width: 100px;
+//   height: 100px;
+//   .center();
+// }
+
+//带参数混合
+// .center(@w,@h,@bck) {
+//   width: @w;
+//   height: @h;
+//   background-color: @bck;
+//   margin: auto;
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+// }
+
+// #o {
+//   .center(100px, 200px, red);
+// }
+
+// 参数默认值
+.center(@w:100px,@h:300px,@bck:red) {
+  width: @w;
+  height: @h;
+  background-color: @bck;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+#o {
+  .center(@w:300px);
+}

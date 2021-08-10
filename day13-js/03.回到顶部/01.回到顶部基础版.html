@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        #box {
+            width: 200px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            background-color: cadetblue;
+            color: #fff;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">回到顶部</div>
+    <script>
+        var oBox = document.getElementById('box')
+        //给滚动条绑定滚动事件 监听滚动条的位置
+        window.onscroll = function () {
+            // 滚动条发生变化的时候 实时监听滚动条的位置
+            var winScroll = window.window.pageYOffset;
+            if (winScroll > 300) {
+                oBox.style.display = "block"
+            } else {
+                oBox.style.display = "none"
+            }
+        }
+
+        oBox.onclick = function () {
+            //直接回到顶部 设置滚动条的值为0
+            window.scrollTo(0, 0)
+        }
+    </script>
+</body>
+
+</html>

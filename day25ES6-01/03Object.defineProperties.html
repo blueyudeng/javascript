@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj1 = Object.create(null, {
+            name: {
+                value: "lisi"
+            }
+        })
+        /* 
+            Object.defineProperty:
+            给对象扩展一个可描述的属性或方法
+                -参数1：被扩展的对象
+                -参数2：扩展的属性名
+                -参数3：对当前属性的描述
+        
+        */
+        Object.defineProperty(obj1, "age", {
+            value: 18,
+            writable: false,
+            enumerable: false,
+            configurable: false
+        })
+        Object.defineProperty(obj1, "sex", {
+            value: "男",
+            writable: false,
+            enumerable: false,
+            configurable: false
+        })
+        console.log(obj1);
+        /* 
+            Object.defineProperties:
+                给对象扩展一个或多个可描述的属性或方法
+                 -参数1：被扩展的对象
+                 -参数2：是一个对象，包含了扩展的属性和对应的描述
+        */
+
+        var obj2 = Object.create(null, {
+            name: {
+                value: "张三"
+            }
+        })
+
+        Object.defineProperties(obj2, {
+            age: {
+                value: 18,
+                writable: false,
+                enumerable: false,
+                configurable: false
+            },
+            sex: {
+                value: "女",
+                writable: false,
+                enumerable: false,
+                configurable: false
+            }
+        })
+        console.log(obj2);
+    </script>
+</body>
+
+</html>

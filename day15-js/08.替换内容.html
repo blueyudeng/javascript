@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">走你~</button>
+    <div id="box">
+        <span>span</span>
+    </div>
+    <script>
+        /* 
+         获取和设置元素的内容：
+             outerHTML（读取或插入HTML字符串）：
+                 - 和innerHTML类似
+                 - 但是设置和获取操作都要带上当前元素
+             outerText（读取或插入文本）：
+                 - 和innerText类似
+                 - 但是设置和获取操作都要带上当前元素
+     */
+        var oBtn = document.getElementById('btn');
+        var oBox = document.getElementById('box');
+
+        oBtn.onclick = function () {
+            console.log(oBox.outerHTML);
+            console.log(oBox.outerText);
+
+            oBox.outerHTML = '<a href="#">点我</a>';
+            // oBox.outerText = '<a href="#">点我</a>';
+        }
+    </script>
+</body>
+
+</html>

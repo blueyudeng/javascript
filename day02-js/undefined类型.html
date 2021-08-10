@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // undefined出现的场景
+        // 1.变量被声明了但是没有给变量赋值
+        var a;
+        console.log(a);
+
+        // 2.在调用函数时 函数需要的参数没有传递 就会出现undefined
+        und(1, 2)
+        function und(a, b, c) {
+            console.log(a, b)
+            console.log(a, b, c);
+        }
+        //3.函数没有写返回值的时候返回的是undefined
+        function ret(a, b) {
+            // console.log(a + b);
+            //函数只要不写return就没有返回值
+            return a + b;
+        }
+        var num = ret(1, 3)
+        console.log(num);
+
+        //4.获取的对象没有属性值的时候返回的就是undefined
+        //数组和对象
+        var class1805 = ["jinyujia", "zhnagdingyang", "yulei", "yangyang"]
+        var member = {
+            name: "yulei",
+            age: 21,
+            hobby: "电子竞技"
+        }
+        //点.表示的意思是成员访问，可以找到其中某个对象的key的值
+        console.log(member.hobby);
+        console.log(member.nan)
+    </script>
+</body>
+
+</html>

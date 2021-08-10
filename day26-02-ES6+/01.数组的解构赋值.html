@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+           解构赋值：
+               - 按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）
+               - 解构赋值 本质就是赋值，把结构解散重构 然后赋值 其实是一种模式的匹配，关键要掌握一一对应关系。
+
+           数组的解构赋值：
+               - 数组解构赋值可以从数组中提取值，按照对应位置，对变量赋值
+
+       */
+        //一一对应
+        {
+            const arr1 = [1, 2, 3]
+            const [a, b, c] = arr1
+            console.log(a, b, c);//1 2 3
+        }
+        //不完全也能解构成功     
+        {
+            const arr2 = [1, 2, 3]
+            const [a, b] = arr2
+            console.log(a, b);//1,2
+        }
+
+        {
+            //解构失败返回undefined
+            const arr = [1]
+            const [a, b, c] = arr
+            console.log(a, b, c);//1 undefined undefined
+        }
+
+        {
+            //可以设值默认值
+            const arr = [1, 2]
+            const [a = 0, b = 0, c = 1] = arr
+            console.log(a, b, c);
+        }
+    </script>
+</body>
+
+</html>

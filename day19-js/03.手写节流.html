@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        /* 
+            节流：
+                让事件在一定时间内只执行一次
+        */
+        var oBox = document.getElementById('box');
+
+        // 事件的核心函数
+        function hxhs(e) {
+            console.log(this);
+            console.log(e);
+            return 123;
+        }
+
+        //把hxhs传入myHxhs中 并传入一个时间 让核心函数每隔一个时间就执行一次
+        oBox.onmousemove = myHxhs(hxhs, 100);
+        //因为事件后面要接一个函数所以 函数myHxhs(hxhs, 100)的返回值必须是一个函数
+        function myHxhs(fn, time) {
+            //获取进入看门狗之前的时间
+            var nowTime = Date.now()
+            // 设值一个看门狗
+            return function () {
+                //获取进入看门狗之后的时间
+                var currentTime = Date.now()
+                //做判断看两个时间是否间隔time 如果间隔小于time就直接退出
+                if (currentTime - nowTime < time) {
+                    return;
+                }
+
+                //通过看门狗之后就把这个时间当作进入下一个看门狗之前的时间
+                nowTime = currentTime;
+
+                fn.call(this, arguments[0]);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="#" id="consa">全部删除</a>
+    <ul id="removeul">
+        <li>1 <a href="###">删除</a></li>
+        <li>2 <a href="###">删除</a></li>
+        <li>3 <a href="###">删除</a></li>
+        <li>4 <a href="###">删除</a></li>
+        <li>5 <a href="###">删除</a></li>
+        <li>6 <a href="###">删除</a></li>
+    </ul>
+    <script>
+        var oLia = document.querySelectorAll("ul li a")
+
+        oLia.forEach(function (item, index) {
+            item.onclick = function () {
+                //删除点击的a标签的父元素
+                // this.parentNode.remove()
+
+            }
+        })
+
+        var oConsa = document.getElementById('consa');
+        var oReul = document.getElementById('removeul')
+        oConsa.onclick = function () {
+            //删除元素oReul
+            oReul.remove()
+        }
+    </script>
+</body>
+
+</html>

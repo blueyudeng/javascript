@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img class="con" id="img" src="./images/01.jpg" alt="狗子哥" uiz="xiaogou">
+    <script>
+        var oImg = document.getElementById('img');
+        var oBtn = document.getElementById('btn');
+
+        console.log(typeof oImg);//object
+
+        oImg.study = "js"
+
+
+        console.log(oImg.src);
+        // 自有属性可以直接通过成员访问来操作
+        oImg.alt = "uzi"
+        oImg.uzi = "123"
+        console.log(oImg.uzi);
+        console.log(oImg.alt);
+        console.log(oImg.id);
+        console.log(oImg.className);
+        //  js对象  元素节点作为js对象来说，则代表可以扩展属性和方法，但是这些属性和方法和元素无关
+        console.log(oImg);
+
+        //getAttribute(key)   获取  无论是自有属性还是自定义属性都可以
+        console.log(oImg.getAttribute("id"));
+        console.log(oImg.getAttribute("class"));
+        console.log(oImg.getAttribute("alt"));
+        console.log(oImg.getAttribute("src"));
+
+        // setAttribute(key,value)  设值属性 无论是自有属性还是自定义属性都可以
+        oImg.setAttribute("wuzi", "abc");
+        console.log(oImg);
+
+        //removeAttribute(key)  删除属性 无论是自有属性还是自定义属性都可以
+        oImg.removeAttribute("wuzi")
+    </script>
+</body>
+
+</html>

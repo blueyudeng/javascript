@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //可以一条语句书写多条代码
+        var a = 1,
+            b = 2,
+            c = 5;
+        //先计算都好做左边 再计算逗号右边 返回逗号右边的值
+        var d = (1, 2, 3, 4, 5, 6);
+        console.log(d);
+        var e = (a, b, c);
+        console.log(e);
+
+
+        for (var g = 0, j = 0; g < 2, j < 10; g++, j++) {
+            console.log(g);//0~9 因为要看逗号右边的j<10
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>猜你最喜欢的明星</h2>
+    <ul>
+        <!-- 假设结构是根据数据生成的 所以顺序和数据的顺序一致 -->
+        <li>胡歌 <a href="###">删除</a></li>
+        <li>杨幂 <a href="###">删除</a></li>
+        <li>霍建华 <a href="###">删除</a></li>
+        <li>唐嫣 <a href="###">删除</a></li>
+        <li>刘亦菲 <a href="###">删除</a></li>
+        <li>彭于晏 <a href="###">删除</a></li>
+    </ul>
+    <script>
+        var arr = ["胡歌", "杨幂", "霍建华", "刘诗诗", "唐嫣", "刘亦菲", "彭于晏"]
+        var add = document.querySelectorAll("ul li a");
+        for (var i = 0; i < add.length; i++) {
+            add[i].index = i
+            add[i].onclick = function () {
+                // parentNode可以获取某个元素的父元素
+                this.parentNode.remove();
+                arr.splice(this.index, 1);
+                console.log("删除之后:", arr);
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

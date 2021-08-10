@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoList</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="outer">
+        <div class="todo-container">
+            <!-- 头部 -->
+            <div class="todo-header">
+                <input type="text" id="newTodo" placeholder="请输入您的任务，回车确认">
+            </div>
+            <!-- 内容展示区域 -->
+            <ul class="todo-main">
+                <!-- <li class="todo-list">
+                    <label>
+                        <input type="checkbox">
+                        <span>抽烟</span>
+                    </label>
+                    <button class="btn btn-danger">删除</button>
+                </li>
+                <li class="todo-list">
+                    <label>
+                        <input type="checkbox">
+                        <span>喝酒</span>
+                    </label>
+                    <button class="btn btn-danger">删除</button>
+                </li>
+                <li class="todo-list">
+                    <label>
+                        <input type="checkbox">
+                        <span>烫头发</span>
+                    </label>
+                    <button class="btn btn-danger">删除</button>
+                </li> -->
+            </ul>
+            <!-- 底部区域 -->
+            <div class="todo-footer">
+                <label>
+                    <input type="checkbox" id="checkAll">
+                </label>
+                <span>
+                    已完成 <span id="allComplateTodos">0</span>
+                    /全部 <span id="allTodos">0</span>
+                </span>
+                <button id="removeAllComplate" class="btn btn-danger">清除已完成任务</button>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery.js"></script>
+    <script>
+        var obj = {
+            doThing: [{
+                content: "唱"
+            },
+            {
+                content: "跳"
+            },
+            {
+                content: "rap"
+            },
+            {
+                content: "篮球"
+            }
+            ]
+        }
+        $(function () {
+            //1.绑定数据
+            bindData();
+            function bindData() {
+                $.each(obj.doThing, function (index, item) {
+                    var ele = $('<li class="todo-list">\
+                    <label>\
+                        <input type="checkbox">\
+                        <span>'+ item.content + '</span>\
+                    </label>\
+                    <button class="btn btn-danger">删除</button>\
+                </li>')
+
+                    $(".todo-main").append(ele)
+                })
+
+
+            }
+
+            //2.鼠标悬浮特效
+            dataHover()
+            function dataHover() {
+                //事件委托
+                $(".todo-main").on("mouseenter", "li", function () {
+                    $(this).css("background", "#ccc").find(".btn").show();
+                }).on("mouseleave", "li", function () {
+                    $(this).css("background", "#fff").find(".btn").hide();
+                })
+            }
+
+            //3.全部任务的数量
+            allListCount();
+            function allListCount() {
+                $("#allTodos").text($(".todo-mian li").length)
+            }
+
+            
+        })
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function arr(a, b) {
+            //先设值一个空数组
+            var add = [];
+            //遍历猴子 把每个猴子放入数组中 
+            for (var i = 1; i <= a; i++) {
+                add.push(i)
+            }
+
+            //只要还有猴子的个数大于1就一直循环 最后只留一个猴子
+            while (add.length > 1) {
+                //每隔b个就停止循环 add的下标从0开始 b是第几个从1开始 所以小于b就是循环了b次
+                for (var i = 0; i < b; i++) {
+                    //把add的前b个依次换到add的后面
+                    add.push(add.shift())
+                }
+                //每次循环完就删掉最后一个值 因为刚才已经把第m个放到最末了
+                add.pop();
+            }
+            return add;
+
+        }
+
+        var re = arr(8, 3);
+        console.log(re);
+    </script>
+</body>
+
+</html>

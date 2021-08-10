@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        var oBox = document.getElementById('box')
+        var oBtn = document.getElementById('btn');
+        var oLis = document.querySelectorAll('#box li');
+
+        oBtn.onclick = function () {
+            var newLi = document.createElement("li");
+
+            var newCons = document.createTextNode("新的li")
+
+            newLi.appendChild(newCons);
+
+            // oBox.appendChild(newLi);
+            //A.replaceChild(新元素，A里面的某个元素)
+            oBox.replaceChild(newLi, oLis[1])
+            oBox.replaceChild(oLis[4], oLis[3])//也可以使用已经存在的元素替换
+
+        }
+    </script>
+</body>
+
+</html>

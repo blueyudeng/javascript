@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //封装一个父类
+        function Person(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        Person.prototype.eat = function () {
+            console.log("螺蛳粉");
+        }
+
+
+        //封装一个子类
+        function Student(classRoom, score, name, age, sex) {
+            this.classRoom = classRoom;
+            this.score = score;
+            //构造函数继承调用父类，并把父类的this指向自己的this
+            Person.call(this, name, age, sex)
+        }
+        //这里只是把实例化对象的地址赋值给了 Student.prototype 即使 Student.prototype 发生改变也影响不了 Person.prototype 而且能通过__proto__访问到 Person.prototype 
+        Student.prototype = new Person;
+        //修正构造器属性
+        Student.prototype.constructor = Student;
+        Student.prototype.study = function () {
+            console.log("面向对象");
+        }
+
+
+        var s1 = new Student(405, 100, "张三", 18, "男");
+        console.log(s1);
+        console.log(s1.eat);
+        console.log(s1.study);
+        console.log(s1.constructor);
+    </script>
+</body>
+
+</html>

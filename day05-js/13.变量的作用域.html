@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            变量作用域：
+                -在程序中，变量可以作用的范围被作为作用域，也叫变量可见性
+                -作用域分为两类，作用域是通过函数来划分的（ES6除外）
+                    -全局作用域（整个js）：全局变量指的是在全局范围内都能被访问
+                    -局部作用域（当前函数内部）：局部变量只能在当前函数内被访问
+        
+        */
+        var a = 1
+        function fn1() {
+            var b = 3;
+            console.log(b);
+        }
+        fn1()
+        console.log(a);
+        // console.log(b);//无法调用局部作用域内的变量
+    </script>
+</body>
+
+</html>

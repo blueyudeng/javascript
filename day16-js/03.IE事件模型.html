@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="cancel">cancel</button>
+    <div id="outer">
+        outer
+        <div id="inner">
+            inner
+            <div id="con">
+                con
+            </div>
+        </div>
+    </div>
+    <script>
+        var oOuter = document.getElementById('outer')
+        var oInner = document.getElementById('inner')
+        var oCon = document.getElementById('con')
+        var oCancel = document.getElementById('cancel');
+
+        oCon.attachEvent("onclick", function () {
+            console.log("con1");
+        })
+
+        oOuter.attachEvent("onclick", function () {
+            console.log("outer2");
+        })
+
+        oOuter.attachEvent("onclick", function () {
+            console.log("outer3");
+        })
+    </script>
+</body>
+
+</html>

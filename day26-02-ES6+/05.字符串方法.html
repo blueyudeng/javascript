@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const str = "yulei dengsi"
+        console.log(str.startsWith("yu"));//stratsWith(): 判断字符串开头是否包含被检测字符串 返回布尔值
+        console.log(str.endsWith("si"));//endsWith():判断字符串结尾是否包含被检测的字符串 返回布尔值
+        console.log(str.includes("lei"));//includes():判断字符串是否包含某个字符串
+
+        const str2 = "aaa"
+        console.log(str2.repeat(3));//repeat重复当前的字符串，可以规定次数
+
+        const str3 = "bbb"
+        console.log(str3.padStart(10, "aaa"));// padStart()当字符串不够某个长度的时候，在前边补充任意字符
+        console.log(str3.padEend(10, "aaa"));// padEnd()当字符串不够某个长度的时候，在后边补充任意字符
+    </script>
+</body>
+
+</html>

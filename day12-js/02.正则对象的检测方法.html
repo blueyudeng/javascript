@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+        RegExp对象提供了test方法 方便检测某个字符是否符合正则规范
+         */
+
+        var reg1 = /^1\d{10}$/;
+        console.log(reg1);
+        console.log(typeof reg1);//对象
+
+
+        var str = "15623609021";
+        //正则的方法
+        console.log(reg1.test(str));
+    </script>
+</body>
+
+</html>

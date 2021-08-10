@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            让第一个元素和最后一个元素调换
+            第二个元素和倒数第二个元素调换
+            。。。。。
+            当循环数组的长度除以2的时候就完成了
+        */
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8]
+        function myReverse(add) {
+            for (var i = 0; i < add.length / 2; i++) {
+                var temp = add[i];
+                add[i] = add[add.length - 1 - i];
+                add[add.length - 1 - i] = temp;
+            }
+            return add;
+        }
+        var re = myReverse(arr)
+        console.log(re);
+    </script>
+</body>
+
+</html>

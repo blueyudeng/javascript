@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var o1 = {
+            name: "lis",
+            age: 17,
+            sex: "nan"
+        }
+        //对象的改：直接通过成员访问（.[]）给对象的某一个属性直接设值值覆盖即可
+        o1.age = "zhangsn"
+        console.log(o1);
+        //对象的增加：直接通过成员访问（.[]）给对象设值一个新属性即可
+        o1["c - o"] = "aaaa";
+        console.log(o1);
+        //对象的查：  直接通过成员访问(. [])获取某个对象的值
+        console.log(o1.age);
+        //使用delete操作符 删除对象的某个属性
+        delete o1.age;
+        console.log(o1);
+    </script>
+</body>
+
+</html>

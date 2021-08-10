@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box {
+            width: 100px;
+            height: 210px;
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .box li {
+            width: 100px;
+            height: 60px;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .box li h1 {
+            width: 100px;
+            height: 60px;
+            background-color: salmon;
+            font-size: 20px;
+            text-align: center;
+            line-height: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .box li p {
+            width: 200px;
+            height: 60px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: sandybrown;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="box">
+        <li>
+            <h1>我是标题1</h1>
+            <p>我是内容1</p>
+        </li>
+        <li>
+            <h1>我是标题2</h1>
+            <p>我是内容2</p>
+        </li>
+        <li>
+            <h1>我是标题3</h1>
+            <p>我是内容3</p>
+        </li>
+    </ul>
+    <script>
+        var oBox = document.getElementById('box')
+        var oBoxLi = document.querySelectorAll("li")
+        var oBoxLips = document.querySelectorAll("p")
+
+        /*         oBoxLi[0].onmouseover = function (e) {
+                    var oBoxLeft = 0;
+                    var timer = null
+                    timer = setInterval(function () {
+                        oBoxLeft--;
+                        if (oBoxLeft < -200) {
+                            oBoxLeft = -200
+                            clearInterval(timer)
+                        }
+                        oBoxLips[0].style.left = oBoxLeft + "px"
+                    }, 20);
+                } */
+
+        //遍历li
+        oBoxLi.forEach(function (item, index) {
+            //每一次遍历都生成一个初始化的值
+            var oBoxLeft = 0;
+            var timer = null;
+            //给每个li绑定鼠标移入事件
+            item.onmouseover = function () {
+                //清除计时器
+                clearInterval(timer)
+                timer = setInterval(function () {
+                    //让初始化的值累加
+                    oBoxLeft--;
+                    //设值临界值
+                    if (oBoxLeft <= -200) {
+                        oBoxLeft = -200
+                        clearInterval(timer)
+                    }
+                    //赋值
+                    oBoxLips[index].style.left = oBoxLeft + "px"
+                }, 20);
+            }
+
+
+            item.onmouseout = function () {
+                clearInterval(timer)
+                timer = setInterval(function () {
+                    oBoxLeft++;
+                    if (oBoxLeft >= 0) {
+                        oBoxLeft = 0
+                        clearInterval(timer)
+                    }
+                    oBoxLips[index].style.left = oBoxLeft + "px"
+                }, 20);
+            }
+        })
+    </script>
+</body>
+
+</html>

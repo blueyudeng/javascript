@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            arguments:代表当前所在函数实参的集合，只能在函数内使用
+            arguments是个伪数组，不具备数组的属性方法，但是可以通过下标依次访问内部的值
+        */
+        function fn1() {
+            console.log(arguments);
+            //定义一个初始值
+            var sum = 0
+            //当i每次加1 arguments[i]获取函数实参每一个值的下标就是对应的值
+            for (var i = 0; i < arguments.length; i++) {
+                sum += arguments[i]
+            }
+            console.log(sum);
+        }
+        fn1(1, 2, 3, 4, 5, 6, 6, 7, 20)
+    </script>
+</body>
+
+</html>

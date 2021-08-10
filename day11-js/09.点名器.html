@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        #change {
+            font-size: 50px;
+            text-align: center;
+            color: yellow;
+        }
+
+        #con {
+            font-size: 100px;
+            text-align: center;
+            color: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="change">START</h1>
+    <p id="con">请点击开始点名</p>
+    <script>
+        var oChange = document.getElementById('change');
+        var oCon = document.getElementById('con')
+        var all = ["罗月梅", "陈思竹", "魏伦源", "余谦", "夏斌", "刘铭烨", "张妮亚", "方文雄", "常恒恒", "郑洁文", "章渡银", "唐鹏", "张妮亚", "商永敬", "黎尹康",
+            "李景琛", "李定成", "乐健澜", "李子捷", "唐姗姗", "姚聪", "祁媛", "张斌", "谢正国", "边策", "张会彬", "童瑞宁", "马祥", "张小迪", "黄炜",
+            "刘志勇", "孙铭铭", "胡泽昆", "吴建松", "陈代露", "余磊", "操利红"
+        ];
+        //随机数函数
+        function random(a, b) {
+            return Math.floor(Math.random() * (b - a) + a);
+        }
+        //定义一个表量初始值为fals;
+        var flag = false;
+        //定义一个空的变量
+        var re = null;
+        //设定一个点击事件
+        oChange.onclick = function () {
+            // 如果if对flag进行判断 由于初始值为fals 所以直接进入eles里面
+            // 下一次点击时flag的值变为非flag变为true进入到第一个里面
+            if (flag) {
+                //清楚计数器
+                clearInterval(re);
+                oChange.textContent = "START"
+                oCon.textContent = "余磊";
+            } else {
+                //设值一个计数器 每隔100毫秒变一次
+                re = setInterval(function () {
+                    // 每次把数组里随机的一个值的下标赋值给一个变量
+                    var index = random(0, all.length);
+                    //再用一个变量接收这个数组里下标所代表的值
+                    var temp = all[index];
+                    //再让元素里的内容改变成数组的值
+                    oCon.textContent = temp;
+                    //点击之后h1标签里的内容就变成END
+                    oChange.textContent = "END"
+                }, 20);
+            }
+            //点击一次之后flag就变成了非flag
+            flag = !flag;
+        }
+
+
+
+    </script>
+</body>
+
+</html>

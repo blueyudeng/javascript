@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //toFixed()：提取小数点后n位 返回一个字符串格式
+        // 随机生成颜色RGBA
+        function rgba() {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            var a = Math.random().toFixed(2);
+            var re = r + "," + g + "," + b + "," + a;
+            return re;
+        }
+        var rex = rgba()
+        console.log(rex);
+
+        // 有一半的几率在做什么事情， 另一半的几率在做另一件事
+        var num = Math.random();
+        if (num < 0.5) {
+            console.log("休息")
+        } else {
+            console.log("干活")
+        }
+    </script>
+</body>
+
+</html>

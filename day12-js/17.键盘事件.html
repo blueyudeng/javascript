@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <input type="text" id="ipt">
+    <script>
+        /* 
+            键盘事件
+
+            可以绑定的对象为
+                -可输入的表单
+                -document
+        */
+
+        var oIpt = document.getElementById('ipt');
+        //keydown键盘按下
+        oIpt.onkeydown = function () {
+            console.log("keydown");
+        }
+        //keyup键盘抬起
+        oIpt.onkeyup = function () {
+            console.log("keyup");
+        }
+
+        var oBox = document.getElementById('box')
+        var num = 100;
+        document.onkeydown = function () {
+            num++;
+            oBox.style.width = num + "px"
+            console.log(1);
+        }
+    </script>
+</body>
+
+</html>

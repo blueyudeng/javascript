@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        #outer {
+            width: 800px;
+            height: 600px;
+            border: 3px solid #000;
+            margin: 40px;
+            background-color: yellowgreen;
+            position: relative;
+        }
+
+        #inner {
+            width: 600px;
+            height: 400px;
+            border: 2px solid #000;
+            margin: 100px;
+            background-color: palegreen;
+            position: relative;
+        }
+
+        #con {
+            width: 300px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 50px;
+            background-color: pink;
+            position: relative;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #000;
+            margin: 30px;
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <div id="outer">
+        <div id="inner">
+            <div id="con">
+                <div id="box"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var oBox = document.getElementById('box')
+        var oBtn = document.getElementById('btn')
+
+        oBtn.onclick = function () {
+            /*             //设置一个变量 把box盒子赋值给变量
+                        var o = oBox;
+                        var l = 0;
+                        //判断是否还有o这个盒子
+                        while (o) {
+                            if (o === oBox) {
+                                //如果o这个变量的值没有改变还是等于box则累加不获取边框
+                                l += o.offsetLeft;
+                            } else {
+                                //如果o这个变量的值改变了则累加获取边框
+                                l += o.offsetLeft + o.clientLeft;
+                            }
+                            //获取当前o的最近定位父级 用来下次判断是否还继续存在
+                            o = o.offsetParent;
+                        }
+                        console.log(l); */
+
+
+
+
+
+
+            function getEleToDoc(ele) {
+                var o = oBox;
+                var l = 0;
+                var t = 0;
+                while (o) {
+                    if (o === oBox) {
+                        l += o.offsetLeft + o.clientLeft;
+                        t += o.offsetTop + o.clientTop;
+                    } else {
+                        l += o.offsetLeft;
+                        t += o.offsetTop;
+                    }
+
+                    o = o.offsetParent;
+                }
+                return {
+                    letf: l,
+                    top: t
+                }
+            }
+            var re = getEleToDoc(oBox)
+            console.log(re);
+        }
+    </script>
+</body>
+
+</html>

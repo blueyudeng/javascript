@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /* 
+            冒泡排序法：
+                遍历数组
+                每次找到的最大值在数组末尾依次排序
+
+        */
+        var maoPao = [1, 2, 4, 3, 6, 4, 1, 7, 8, 5, 6, 8, 0]
+        //先进行一次冒泡
+        /*       function arr(mp) {
+            //首先选中第一个元素开始 与后面的每一个元素开始比较
+                  for (var i = 0; i < maoPao.length; i++) {
+                      //如果第i个元素大于第i+1一个元素 则交换位置
+                      if (maoPao[i] > maoPao[i + 1]) {
+                          //用空数组赋值来交换位置
+                          var temp = maoPao[i];
+                          maoPao[i] = maoPao[i + 1];
+                          maoPao[i + 1] = temp;
+                      }
+                  }
+                  //最后找出了最大的一个数
+                  return maoPao;
+              } */
+
+        function arr(mp) {
+            //外层的for代表冒泡的次数，每次冒一个泡 就找到了一个最大值 放在后面
+            for (var i = 0; i < mp.length; i++) {
+                //内层for是每次冒泡找的最大值 次数是数组的长度，减去已经找到的最大的个数 就是还需要冒泡的个数；
+                for (var j = 0; j < mp.length - i; j++) {
+                    if (maoPao[j] > maoPao[j + 1]) {
+                        var temp = maoPao[j];
+                        maoPao[j] = maoPao[j + 1];
+                        maoPao[j + 1] = temp;
+                    }
+                }
+            }
+            return mp;
+        }
+        var re = arr(maoPao)
+        console.log(re);
+
+    </script>
+</body>
+
+</html>

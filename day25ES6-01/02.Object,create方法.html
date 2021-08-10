@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Object.create:
+                -创建对象的另一种方法，得到一个Object的实例化对象
+                -Object.create()第一个参数：指定创建的新对象的原型对象
+        */
+
+        var ex = {
+            eat: function () {
+                console.log(eat);
+            }
+        }
+
+        var obj1 = Object.create(ex)
+        console.log(obj1);//{}
+        console.log(obj1.eat);//函数
+
+        var obj2 = Object.create(Object.prototype)
+        console.log(obj2);
+
+        var obj3 = Object.create(null)
+        console.log(obj3);
+
+
+        /* 
+            Object.create参数2：
+                -是一个对象，叫属性描述，这个对象里书写每一个对象的属性
+                -每一个对象key的属性值是一个对象，是对当前属性值的描述
+                -value：属性值
+                -writable：默认false 表示属性是否可以写
+                -enumerable：默认false 表示属性是否可以被枚举
+                -configurable：默认false 表示属性能否被删除
+        */
+
+        //创建一个对象，使用create方法的第二个参数给对象扩展属性和方法
+        var obj4 = Object.create(null, {
+            name: {
+                value: "zhangsan",
+                writable: false,
+                enumerable: true,
+                configurable: false
+            },
+            age: {
+                value: 18,
+                writable: true,
+                enumerable: true,
+                configurable: true
+            }
+        })
+
+        /*        obj4.name = "lishi"
+               for (var key in obj4) {
+                   console.log(key);
+               }
+               delete obj4.name;
+               console.log(obj4);
+        */
+
+        obj4.age = 19
+        for (var key in obj4) {
+            console.log(key);
+        }
+        console.log(obj4.age);
+
+        delete obj4.age;
+        console.log(obj4);
+    </script>
+</body>
+
+</html>

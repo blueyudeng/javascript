@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 300px;
+            background-color: aquamarine;
+            position: relative;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        #box img {
+            width: 164px;
+            height: 186px;
+            position: absolute;
+            left: 50%;
+            margin-left: -82px;
+            top: -186px;
+        }
+
+        #box p {
+            width: 100%;
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img src="../images/05.jpg" alt="">
+        <p>最帅的老师</p>
+    </div>
+    <script>
+        /*
+            mouseenter 鼠标移入
+            mouseleave 鼠标移出
+        */
+
+        var oBox = document.getElementById('box')
+        var oImg = document.querySelector("#box img")
+        console.log(oImg);
+
+        //把img的top赋值给变量
+        var oTop = -186;
+        var time = null;
+        oBox.onmouseenter = function () {
+            //设值一个计时器让 oTop依次减小
+            time = setInterval(function () {
+                oTop += 5
+                //设置一个临界点 当oTop大于等于0时 使oTo的值为0 并且清除计时器
+                if (oTop >= 0) {
+                    oTop = 0
+                    clearInterval(time);
+                }
+                //每次减小后都要赋值给img
+                oImg.style.top = oTop + "px"
+            }, 100);
+        }
+
+        oBox.onmouseleave = function () {
+            //鼠标移出后先清除掉计时器
+            clearInterval(time)
+            //回到原来的位置
+            oImg.style.top = -186 + "px";
+            //初始值也恢复
+            oTop = -186
+            console.log(oTop);
+        }
+    </script>
+</body>
+
+</html>

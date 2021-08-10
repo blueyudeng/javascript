@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="text1">输入需要增加宽高的第一个值：</label><input type="text" name="" id="text1">
+    <br>
+    <label for="text2">输入需要增加宽高的第二个值：</label><input type="text" name="" id="text2">
+    <br>
+    <button id="btn">两个值相加增加</button>
+    <br>
+    <div id="box"></div>
+    <script>
+        var oText1 = document.getElementById("text1");
+        var oText2 = document.getElementById("text2");
+        var oBtn = document.getElementById("btn");
+        var oBox = document.getElementById("box");
+
+        oBtn.onclick = function () {
+            //先获取输入框的值
+            var ipt1 = oText1.value;
+            var ipt2 = oText2.value;
+            //判断第一个输入框输入的值是不是纯数字 返回值为false就跳出这个if语句 返回值为true则弹出提示框
+            if (isNaN(ipt1)) {
+                alert("第一个输入框输入的不是纯数字");
+                //函数运行完成之后直接退出
+                return;
+            }
+            //判断第二个输入框输入的值是不是纯数字 返回值为false就跳出这个if语句 返回值为true则弹出提示框
+            if (isNaN(ipt2)) {
+                alert("第二个输入框输入的不是纯数字");
+                return;
+            }
+            //获取第一个输入框和第二个输入框值的和（表单中输入的值都为string类型 要转换为number类型才能计算）
+            var oBoxValue = Number(ipt1) + Number(ipt2);
+            console.log(oBoxValue);
+            //再把获取到的和加到元素的宽高上面
+            oBox.style.width = oBoxValue + "px";
+            oBox.style.height = oBoxValue + "px";
+            oBox.style.background = "red";
+
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //方法1:
+        var arry = [1, 2, 4, 3, 6, 4, 1, 7, 8, 5, 6, 8, 0, 0, 0, 0];
+        /*     function noChong(arr) {
+                    //定义一个空的数组
+                    var brr = [];
+                    arr.forEach(function (item, index) {
+                        //利用indexOf()判断空数组中是否有当前循环的元素
+                        if (brr.indexOf(item) === -1) {
+                            //如果没有就添加到新数组里
+                            brr.push(item)
+                        }
+                    })
+                    return brr;
+                }
+                var re = noChong(arry);
+                console.log(re);
+         */
+        //方法2:
+        function noChong(arr) {
+            //外层循环数组
+            for (var i = 0; i < arr.length; i++) {
+                /*  
+                 当外层的数组的第一个值进来只有 内层循环会直接循环完 
+                 由此可以判断每个i进来的时候和这个i之后所有的元素有没有相等的
+                */
+
+                for (var j = i+1; j < arr.length; j++) {
+                    if (arr[i] === arr[j]) {
+                        //如果有就直接删除
+                        arr.splice(j, 1)
+                        //因为我们删除了数组的某个值，所以数组的下标依次前进一位，但是我们的j依然会累加，就会少检测一个值，所以需要j--
+                        j--;
+                    }
+                }
+            }
+            return arr;
+
+        }
+        var re = noChong(arry);
+        console.log(re);
+
+    </script>
+</body>
+
+</html>

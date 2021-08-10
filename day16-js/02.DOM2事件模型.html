@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div id="btn">
+            test
+            <div id="cancel">cancel</div>
+        </div>
+
+
+    </div>
+
+
+</body>
+<script>
+    var oBtn = document.getElementById('btn')
+    var oCancel = document.getElementById('cancel')
+
+    /* 
+        DOM事件模型(DOM2级事件模型)
+            使用addEventListener()给元素注册
+            参数一：事件类型 不加on
+            参数二：函数
+            参数三：布尔值 控制冒泡还是捕获 true为捕获 false为冒泡 默认为冒泡
+    */
+    //可以给一个元素绑定同一个事件多次
+    /*     oBtn.addEventListener("click", function () {
+            console.log("btn1");
+        }, false)
+    
+        oBtn.addEventListener("click", function () {
+            console.log("btn2");
+        }, false)
+    
+        oBtn.addEventListener("click", function () {
+            console.log("btn3");
+        }, false)
+    
+        oBtn.addEventListener("click", function () {
+            console.log("btn4");
+        }, false)
+     */
+
+    /*    oBtn.addEventListener("click", function () {
+           console.log("btn1");
+       }, false)
+   
+   
+       document.addEventListener("click", function () {
+           console.log("document");
+       }, false)
+   
+       oCancel.addEventListener("click", function () {
+           console.log("cancel");
+       }, false)
+    */
+
+    /* 
+       注销事件：
+            removeEventListener()
+                参数1：要注销的事件类型
+                参数2：要知晓的当前事件类型的某个事件函数
+                参数3：和注销事件相同的true或者false
+    
+    */
+
+    function fn() {
+        console.log("fn");
+    }
+    //绑定事件
+    oCancel.addEventListener("click", fn, false);
+
+
+    oBtn.onclick = function () {
+        //注销事件
+        oCancel.removeEventListener("click", fn, false)
+    }
+</script>
+
+</html>

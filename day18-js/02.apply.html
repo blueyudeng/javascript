@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            apply:
+                和call类似 都是调用函数 并改变this指向
+
+            和call区别是：
+                call给被调用的函数传参 是自己的第二个参数开始依次传参
+                apply给被调用的函数传参，是把所有函数的参数放在一个数组中，然后传入到apply的第二个参数
+        
+        */
+        function fn(a, b) {
+            console.log(this);//o
+            return 123
+        }
+
+        var o = {
+            sex: "nan"
+        }
+
+        var re = fn.apply(o, [1, 2])
+        console.log(re);//123
+
+    </script>
+</body>
+
+</html>

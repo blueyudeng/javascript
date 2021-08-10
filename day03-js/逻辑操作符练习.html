@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt1"><br>
+    <input type="text" id="ipt2"><br>
+    <p id="num"></p>
+    <button id="btn">相加</button>
+    <script>
+        /* 
+     判断两个数，如果有一个是非数字，则提示用户，否则计算两个值的和
+ 
+ */
+        var oIpt1 = document.getElementById("ipt1")
+        var oIpt2 = document.getElementById("ipt2")
+        var oBtn = document.getElementById("btn")
+        var oNum = document.getElementById("num")
+        oBtn.onclick = function () {
+            var oIpt1Value = oIpt1.value;
+            var oIpt2Value = oIpt2.value;
+
+            /*         if (isNaN(oIpt1Value) || isNaN(oIpt2Value)) {
+                        alert("有非数字字符输入");
+                        // return;
+                    } 
+                    oNum.textContent = Number(oIpt1Value) + Number(oIpt2Value) */
+
+            /*          if (!isNaN(oIpt1Value) && !isNaN(oIpt2.value)) {
+                         oNum.textContent = Number(oIpt1Value) + Number(oIpt2Value)
+                     } else {
+                         alert("有非数字字符输入");
+                     }
+          */
+
+            if (!(isNaN(oIpt1Value) || isNaN(oIpt2Value))) {
+                oNum.textContent = Number(oIpt1Value) + Number(oIpt2Value)
+            } else {
+                alert("有非数字字符输入");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

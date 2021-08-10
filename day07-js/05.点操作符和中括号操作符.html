@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            成员访问：
+                -分为点操作符和中括号操作符
+                -点操作符后跟属性，不会被当做变量解析，而是直接作为对象的key设值进去，当key是不规则字符串的时候不能使用
+                -中括号操作符中可以解析变量，先解析变量得到值，并转为字符串 设值给对象。当key是不规则字符串的时候，可以使用中括号
+
+
+            具体使用：
+                -优先使用点操作符
+                -当key是一个变量或者不规则字符的时候，使用中括号操作符
+        */
+        var a = {
+            n: 1
+        }
+        var b = a;
+
+        a.n = a = {
+            m: 2
+        }
+        console.log(a);
+        console.log(b);
+
+            
+    </script>
+</body>
+
+</html>

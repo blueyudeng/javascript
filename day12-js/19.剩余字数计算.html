@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #text {
+            width: 400px;
+            height: 400px;
+            font-size: 30px;
+            resize: none;
+            /* ontline获取焦点时的默认样式 */
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <h2>请开始你的表演</h2>
+        <textarea id="text"></textarea>
+        <p>你还可以输入<span id="con">50</span></p>
+    </div>
+    <script>
+        //效果1：字数超出以后 边框变红提示用户
+        var oText = document.getElementById('text')
+        var oCon = document.getElementById('con')
+        //定义一个用户剩余可以输入的长度的变量
+        var num = 50;
+        /*  //给oText绑定一个表单内容发生变化时的事件
+         oText.oninput = function () {
+             //获取输入内容的长度 
+             var l = this.value.length;
+             //可以输入的长度-输入了的长度=剩余还可以输入的啥暗渡
+             var cnum = num - l;
+             // 判断剩余可以输入的值是否小于0 小于0时边框变红
+             if (cnum < 0) {
+                 oText.style.borderColor = "red"
+                 //没有小于0时边框变黑
+             } else {
+                 oText.style.borderColor = "#000"
+             }
+             oCon.textContent = cnum;
+         } */
+
+
+        // 效果2：字数超出以后 不允许输入
+        //给表单绑定一个表单内容发生改变触发的事件
+        oText.oninput = function () {
+            // 获取已经输入了的字数
+            var l = this.value.length;
+            //获取剩余还能输入的字数
+            var cnum = num - l;
+            //判断剩余还能输入的字数是否小于等于0
+            if (cnum <= 0) {
+                //符合条件时截取oText的值 下标为0-50的值并赋值给oText
+                this.value = this.value.slice(0, 50)
+                cnum = 0;
+            }
+            oCon.textContent = cnum
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //异常处理语句：try{代码}catch(e){处理异常}
+        /*         try {
+                    // var a = 1;
+                    console.log(a);
+                } catch (e) {
+                    console.log(e);
+                }
+        
+                console.log(123); */
+        // 手动抛出异常:SyntaxError("错误：这个是错误的")
+        try {
+            throw new SyntaxError("错误：这个是错误的")
+            var a = 1;
+            console.log(a);
+        } catch (f) {
+            console.log(f);
+        }
+
+        console.log("123");
+
+    </script>
+</body>
+
+</html>

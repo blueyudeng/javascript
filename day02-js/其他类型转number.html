@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //在字符串中如果是纯数字转number则转为对应数字，如果带有其他字符则转为NaN
+        console.log(Number("1"));//
+        console.log(Number("1.1"));//1.1
+        console.log(Number("-1"));//-1
+        console.log(Number("123abc"));//NaN
+        console.log(Number("ahdssad123"));//NaN
+        //空的字符串或者只有空格的字符串转位0
+        console.log(Number(""));//0
+        console.log(Number(" "));//0
+        //布尔类型中 fales为0 true为1
+        console.log(Number(true));//1
+        console.log(Number(false));//0
+        //null会转为0 undefined转为NaN
+        console.log(Number(null));//0
+        console.log(Number(undefined));//NaN
+        //object转number中对象和函数都是NaN
+        console.log(Number({}));//NaN
+        // 空数组会转为0
+        console.log(Number([]));//0
+        //数组只有一个数字会转为相应的数字 有两个或其他字符会转为NaN
+        console.log(Number([1]));//1
+        console.log(Number([1, 2]));//NaN
+        console.log(Number(["a"]));//NaN
+        console.log(Number(function () { }));//NaN
+    </script>
+</body>
+
+</html>

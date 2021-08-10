@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            this指向和函数调用相关：
+                函数调用方式：
+                    - 默认调用
+                    - 上下文对象调用(注意隐式丢失)
+                    - call、apply、bind强制绑定
+                    - new调用
+                
+            如何判断this指向：
+                - 看函数是否被实例化调用，如果是则指向实例化对象
+                - 看函数是否被call apply bind强制绑定，如果是则指向第一个参数
+                - 看是否有上下文对象调用，如果是则指向上下文对象
+                - 其他的都是默认调用，指向window
+                - 总结：this指向其所在函数的调用者，如果没有调用者，则指向全局对象window
+        
+        */
+
+
+        //函数默认调用
+        function fn1() {
+            console.log("默认调用", this);
+        }
+        fn1() //window
+
+        //上下文对象调用
+        var o = {
+            fn: function () {
+                console.log("上下文对象", this);
+            }
+        }
+        o.fn(); //o
+
+        //隐式丢失
+        var o2 = {
+            fn: o1.fn
+        }
+        o2.fn(); //o2
+        var fn2 = o1.fn;
+        fn2(); //window
+
+
+        //call
+        function fn3() {
+            console.log("call", this);
+        }
+        fn3.call(o); //o
+
+
+        //new
+        function fn4() {
+            console.log("new", this);
+        }
+        var o3 = new fn4(); //o3
+    </script>
+</body>
+
+</html>

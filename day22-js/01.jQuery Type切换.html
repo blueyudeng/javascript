@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 600px;
+            border: 1px solid steelblue;
+            margin: 100px auto;
+            padding: 0;
+        }
+
+        .head {
+            width: 600px;
+            display: flex;
+
+        }
+
+        .head h3 {
+            width: 198px;
+            height: 50px;
+            border: 1px solid seagreen;
+            line-height: 50px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .head h3.add {
+            background-color: red;
+            color: #fff;
+        }
+
+        .neir {
+            width: 600px;
+            height: 300px;
+            list-style-type: none;
+            text-align: center;
+            line-height: 300px;
+            padding: 0;
+            margin: 0;
+            font-size: 50px;
+        }
+
+        .neir li {
+            display: none;
+        }
+
+        .neir li.bdd {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box">
+        <div class="head">
+            <h3 class="add">标题1</h3>
+            <h3>标题2</h3>
+            <h3>标题3</h3>
+        </div>
+        <ul class="neir">
+            <li class="bdd">内容1</li>
+            <li>内容2</li>
+            <li>内容3</li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+        $(".head h3").click(function () {
+            $(this).addClass("add").siblings().removeClass("add");
+            console.log($(this).index());
+            $(".neir li").eq($(this).index()).addClass("bdd").siblings().removeClass("bdd");
+            console.log();
+        })
+
+    </script>
+</body>
+
+</html>

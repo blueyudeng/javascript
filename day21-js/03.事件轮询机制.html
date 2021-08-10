@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            事件轮询机制(event loop):
+                -代码分类：
+                    初始化代码(同步代码)：设值定时器，设置事件，for循环等待
+                    回调执行代码(异步代码)：定时器的回调函数，事件函数，ajax回调函数
+                -代码执行顺序：
+                    先执行同步代码，再执行异步代码
+                -事件轮询过程
+                    - 当异步回调需要被执行的时候，模块会把回调函数交给回调队列(callback queue)等待js主线程执行
+                    - 当主线程的代码执行完毕之后，主线程会遍历回调队列执行里边的回调函数
+        
+         */
+    </script>
+</body>
+</html>

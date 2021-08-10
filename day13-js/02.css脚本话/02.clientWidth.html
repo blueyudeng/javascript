@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            border: 2px solid #000;
+            margin: 15px;
+            background-color: yellowgreen;
+            /* visibility: hidden; */
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">点我啊~</button>
+    <div class="box"></div>
+    <script>
+        var oBox = document.querySelector('.box');
+        var oBtn = document.getElementById('btn');
+
+        oBtn.onclick = function () {
+            //clientWidth 获取元素pidding-box的宽度(content+pidding)
+            console.log(oBox.clientWidth);
+        }
+    </script>
+</body>
+
+</html>
