@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const re = new Promise((resolve, reject) => {
+            console.log("开始请求.....");
+            setTimeout(() => {
+                try {
+                    throw new Error("a数据请求失败")
+                    console.log("a请求成功");
+                    const arr = [1, 2, 3, 4, 5]
+                    resolve(arr)
+                } catch (e) {
+                    console.log("a请求失败");
+                    reject(e)
+                }
+            }, 1500)
+        })
+        console.log(re);
+
+        re.then((value) => {
+            console.log(value);
+            console.log("成功的时候调用我");
+        }, (reason) => {
+            console.log(reason);
+            console.log("失败的时候调用我");
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+              Promise失败的调用catch成功的 则听catch成功的
+              Promise失败的调用catch失败的 则听catch失败的
+              Promise失败的调用catch未定义的 则听catch未定义的
+              Promise失败的调用catch没有返回值的 则catch返回的Promise对象的状态为成功 值为undefined
+               Promise失败的调用catch有返回值不是回调函数的 则catch返回的Promise对象的状态为成功 值为catch定义的值
+
+              Promise成功的调用catch成功的 则听Promise成功的
+              Promise成功的调用catch失败的 则听catch失败的
+              Promise成功的调用catch未定义的 则听Promise的
+
+            Promise只要是失败了 catch返回的对象的状态和值都听catch的
+            Promise要是成功了  catch除了失败的对象状态和值听catch的 其他的都听 Promise的
+
+        */
+        const re1 = new Promise((resolve, reject) => {
+            console.log("开始请求.....");
+            setTimeout(() => {
+                try {
+                    // throw new Error("a数据请求失败")
+                    console.log("a请求成功");
+                    const arr = [1, 2, 3, 4, 5]
+                    resolve(arr)
+                } catch (e) {
+                    console.log("a请求失败");
+                    reject(e)
+                }
+            }, 1500)
+        })
+        console.log(re1);
+
+        const re2 =  re1.catch((resolve, reject) => {
+
+        })
+        console.log(re2);
+
+        /*   const re2 = re1.catch((resolve, reject) => {
+              return new Promise((resolve, reject) => {
+  
+              })
+  
+          })
+          console.log(re2); */
+    </script>
+</body>
+
+</html>

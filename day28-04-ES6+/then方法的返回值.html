@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /* 
+            Promise失败的调用then成功的 则听Promise失败的
+            Promise失败的调用then失败的 则听then失败的
+            Promise失败的调用then未定义的 则听Promise失败的
+            Promise失败的调用then没有返回值的 则听Promise失败的
+             Promise失败的调用then有返回值不是回调函数的 则听Promise失败的
+            
+
+            Promise成功的调用then成功的 则听then成功的
+             Promise成功的调用then失败的 则听then失败的
+             Promise成功的调用then未定义的 则听then未定义的
+             Promise成功的调用then没有返回值的 则听then返回的Promise 的状态为成功的 值为undefined
+
+
+              Promise失败了 除非then也是失败才听自己的 其他都听Promise的
+              Promise成功的时候 then返回对象的状态和值都听自己的
+             
+        */
+        const re1 = new Promise((resolve, reject) => {
+            console.log("开始请求.....");
+            setTimeout(() => {
+                try {
+                    // throw new Error("a数据请求失败")
+                    console.log("a请求成功");
+                    const arr = [1, 2, 3, 4, 5]
+                    resolve(arr)
+                } catch (e) {
+                    console.log("a请求失败");
+                    reject(e)
+                }
+            }, 1500)
+        })
+        console.log(re1);
+
+        const re2 = re1.then(() => {
+                // return 1
+        })
+        console.log(re2);
+
+        /*   const re3 = re1.then(() => {
+              return new Promise((resolve, reject) => {
+  
+              })
+          })
+          console.log(re3); */
+
+        /* const re4 = re1.then(() => {
+            return new Promise((resolve, reject) => {
+                resolve(123)
+            })
+        })
+        console.log(re4); */
+
+       /*  const re5 = re1.then(() => {
+            return new Promise((resolve, reject) => {
+                // reject(123)
+            })
+        })
+        console.log(re5); */
+    </script>
+</body>
+
+</html>
